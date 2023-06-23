@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "fishing101",
+	"version": "${version}",
+
+	"name": "Fishing 101",
+	"description": "Fishing 101 ads more fish to catch in different biomes!",
+	"authors": [
+		"Macck209"
+	],
+	"contact": {
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/fishing101/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.macck209.fishing101.Fishing101Initializer"
+		]
+	},
+	"mixins": [
+		"fishing101.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
