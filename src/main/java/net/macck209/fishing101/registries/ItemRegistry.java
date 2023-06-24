@@ -9,10 +9,14 @@ import net.macck209.fishing101.items.fishes.mackerel.LuminousMackerelItem;
 import net.macck209.fishing101.items.fishes.mackerel.OrdinaryMackerelItem;
 import net.macck209.fishing101.items.fishes.mackerel.SmokedLuminousMackerelItem;
 import net.macck209.fishing101.items.fishes.mackerel.SmokedOrdinaryMackerelItem;
+import net.macck209.fishing101.items.fishes.other.JellyfishItem;
 import net.macck209.fishing101.items.fishes.other.MangroveJackItem;
 import net.macck209.fishing101.items.fishes.other.SmokedMangroveJackItem;
+import net.macck209.fishing101.items.fishes.shrimp.LuminousShrimpItem;
+import net.macck209.fishing101.items.fishes.shrimp.OrdinaryShrimpItem;
+import net.macck209.fishing101.items.fishes.shrimp.SmokedLuminousShrimpItem;
+import net.macck209.fishing101.items.fishes.shrimp.SmokedOrdinaryShrimpItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
@@ -54,6 +58,17 @@ public class ItemRegistry {
                     .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 30 * 20), 1).build()), Items.TROPICAL_FISH));
     public static final Item MANGROVE_JACK = registerItem("mangrove_jack", new MangroveJackItem(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(4).saturationModifier(0.4F).build()), Items.TROPICAL_FISH));
+    public static final Item ORDINARY_SHRIMP = registerItem("ordinary_shrimp", new OrdinaryShrimpItem(new FabricItemSettings().maxCount(64)
+            .food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1F).build()), Items.TROPICAL_FISH));
+    public static final Item LUMINOUS_SHRIMP = registerItem("luminous_shrimp", new LuminousShrimpItem(new FabricItemSettings().maxCount(64)
+            .food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1F)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 30 * 20), 1).build()), Items.TROPICAL_FISH));
+    public static final Item JELLYFISH = registerItem("jellyfish", new JellyfishItem(new FabricItemSettings().maxCount(64)
+            .food(new FoodComponent.Builder().hunger(1).saturationModifier(0.4F)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 8 * 20,1), 0.25F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 150 * 20), 0.25F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.CONDUIT_POWER, 150 * 20), 0.25F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 150 * 20), 0.25F).build()), Items.TROPICAL_FISH)); // Random bullshit go!
 
     // Smoked fish
     public static final Item SMOKED_ORDINARY_CARP = registerItem("smoked_ordinary_carp", new SmokedOrdinaryCarpItem(new FabricItemSettings().maxCount(64)
@@ -75,6 +90,13 @@ public class ItemRegistry {
                     .statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 300 * 20), 1).build()), Items.TROPICAL_FISH));
     public static final Item SMOKED_MANGROVE_JACK = registerItem("smoked_mangrove_jack", new SmokedMangroveJackItem(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(8).saturationModifier(1F).build()), Items.TROPICAL_FISH));
+    public static final Item SMOKED_ORDINARY_SHRIMP = registerItem("smoked_ordinary_shrimp", new SmokedOrdinaryShrimpItem(new FabricItemSettings().maxCount(64)
+            .food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4F).build()), Items.TROPICAL_FISH));
+    public static final Item SMOKED_LUMINOUS_SHRIMP = registerItem("smoked_luminous_shrimp", new SmokedLuminousShrimpItem(new FabricItemSettings().maxCount(64)
+            .food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 300 * 20), 1)
+            .statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 300 * 20), 1).build()), Items.TROPICAL_FISH));
+
 
 
     public static Item registerItem(String name, Item item) {

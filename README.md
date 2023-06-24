@@ -1,5 +1,5 @@
 # Fishing101
-Adds 10 new fish types to the game.
+Adds 13 new aquatic life forms to the game (items, not entities).
 
 - Some fishes are time-of-day-specific and others are biome-specific.
 - Fish have different rarities and stats. 

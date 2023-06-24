@@ -87,7 +87,7 @@ public class LootRegistry {
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_MACKEREL)
                             .conditionally(NEEDS_OCEAN_BIOME)
-                            .weight(6000))
+                            .weight(3000))
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_MACKEREL)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
@@ -95,7 +95,19 @@ public class LootRegistry {
 
                     .with(ItemEntry.builder(ItemRegistry.MANGROVE_JACK)
                             .conditionally(NEEDS_MANGROVE)
-                            .weight((1000)));
+                            .weight((1000)))
+
+                    .with(ItemEntry.builder(ItemRegistry.ORDINARY_SHRIMP)
+                            .conditionally(NEEDS_OCEAN_BIOME)
+                            .weight((2000)))
+                    .with(ItemEntry.builder(ItemRegistry.LUMINOUS_SHRIMP)
+                            .conditionally(NEEDS_OCEAN_BIOME)
+                            .conditionally(NEEDS_NIGHT)
+                            .weight((240)))
+
+                    .with(ItemEntry.builder(ItemRegistry.JELLYFISH)
+                            .conditionally(NEEDS_OCEAN_BIOME)
+                            .weight((600)));
                 });
             }
         });

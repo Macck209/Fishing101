@@ -16,6 +16,7 @@ public class AutoFishItem extends Item implements PolymerItem {
     public static final TextColor DIVINE;
     public static final TextColor LUMINOUS;
     public static final TextColor MANGROVE;
+    public static final TextColor JELLYFISH;
 
 
     public AutoFishItem(Settings settings, Item polymerItem) {
@@ -25,6 +26,7 @@ public class AutoFishItem extends Item implements PolymerItem {
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {return this.polymerItem;}
 
+
     static{
         ORDINARY=TextColor.parse("#aaaaaa");
         DEFORMED=TextColor.parse("#596c3d");
@@ -33,5 +35,6 @@ public class AutoFishItem extends Item implements PolymerItem {
         DIVINE=TextColor.parse("#ffe558");
         LUMINOUS=TextColor.parse("#00cda0");
         MANGROVE=TextColor.parse("#773731");
+        JELLYFISH=TextColor.parse("#00e3e0");
     }
 }

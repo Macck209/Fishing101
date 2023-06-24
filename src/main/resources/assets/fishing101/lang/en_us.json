@@ -11,6 +11,9 @@
   "item.fishing101.tropical_catfish": "Tropical Catfish",
   "item.fishing101.divine_catfish": "Divine Catfish",
   "item.fishing101.mangrove_jack": "Mangrove Jack",
+  "item.fishing101.ordinary_shrimp": "Ordinary Shrimp",
+  "item.fishing101.luminous_shrimp": "Luminous Shrimp",
+  "item.fishing101.jellyfish": "Jellyfish",
 
   "item.fishing101.smoked_ordinary_carp": "Smoked Carp",
   "item.fishing101.smoked_deformed_carp": "Smoked Deformed Carp",
@@ -18,5 +21,7 @@
   "item.fishing101.smoked_ordinary_mackerel": "Smoked Mackerel",
   "item.fishing101.smoked_luminous_mackerel": "Smoked Luminous Mackerel",
   "item.fishing101.smoked_ordinary_catfish": "Smoked Catfish",
-  "item.fishing101.smoked_mangrove_jack": "Smoked Mangrove Jack"
+  "item.fishing101.smoked_mangrove_jack": "Smoked Mangrove Jack",
+  "item.fishing101.smoked_ordinary_shrimp": "Smoked Ordinary Shrimp",
+  "item.fishing101.smoked_luminous_shrimp": "Smoked Luminous Shrimp"
 }
