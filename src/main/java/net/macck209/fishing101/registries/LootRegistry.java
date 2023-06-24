@@ -54,9 +54,9 @@ public class LootRegistry {
                     .with(ItemEntry.builder(Items.SALMON)
                             .weight(2000-25))
                     .with(ItemEntry.builder(Items.PUFFERFISH)
-                            .weight(200-2))
+                            .weight(240-2))
                     .with(ItemEntry.builder(Items.TROPICAL_FISH)
-                            .weight(500-13))
+                            .weight(600-13))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_CARP)
                             .conditionally(NOT_OCEAN_BIOME)
@@ -64,11 +64,11 @@ public class LootRegistry {
                             .weight(3000))
                     .with(ItemEntry.builder(ItemRegistry.DEFORMED_CARP)
                             .conditionally(NOT_OCEAN_BIOME)
-                            .weight(500))
+                            .weight(800))
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_CARP)
                             .conditionally(NOT_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight(50))
+                            .weight(240))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_CATFISH)
                             .conditionally(NOT_OCEAN_BIOME)
@@ -83,7 +83,7 @@ public class LootRegistry {
                             .weight(3000))
                     .with(ItemEntry.builder(ItemRegistry.DIVINE_CATFISH)
                             .conditionally(NOT_OCEAN_BIOME)
-                            .weight(10))
+                            .weight(40))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_MACKEREL)
                             .conditionally(NEEDS_OCEAN_BIOME)
@@ -91,7 +91,7 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_MACKEREL)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight(50))
+                            .weight(240))
 
                     .with(ItemEntry.builder(ItemRegistry.MANGROVE_JACK)
                             .conditionally(NEEDS_MANGROVE)

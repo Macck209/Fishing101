@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "fishing101:tropical_catfish"
+  },
+  "result": "fishing101:smoked_catfish",
+  "experience": 0.5,
+  "cookingtime": 500
+}
