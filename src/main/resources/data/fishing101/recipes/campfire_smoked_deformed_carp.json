@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "fishing101:deformed_carp"
+  },
+  "result": "fishing101:smoked_deformed_carp",
+  "experience": 0.6,
+  "cookingtime": 800
+}

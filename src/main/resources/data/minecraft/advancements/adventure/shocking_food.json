@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "fishing101:charged_thunderfin"
+    },
+    "title": "Shocking food",
+    "description": "Charge up a thunderfin with copper",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/lightning_rod_with_villager_no_fire",
+  "criteria": {
+    "get_charged_thunderfin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fishing101:charged_thunderfin"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_charged_thunderfin"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  },
+  "sends_telemetry_event": true
+}

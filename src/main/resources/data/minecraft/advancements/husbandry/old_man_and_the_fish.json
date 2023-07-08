@@ -1,0 +1,361 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:tropical_fish"
+    },
+    "title": "Old Man and the Fish",
+    "description": "Discover all the new fish types",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:husbandry/fishy_business",
+  "criteria": {
+    "cod": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:cod"
+          ]
+        }
+      }
+    },
+    "pufferfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:pufferfish"
+          ]
+        }
+      }
+    },
+    "salmon": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:salmon"
+          ]
+        }
+      }
+    },
+    "tropical_fish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:tropical_fish"
+          ]
+        }
+      }
+    },
+    "anglerfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:anglerfish"
+          ]
+        }
+      }
+    },
+    "ordinary_carp": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:ordinary_carp"
+          ]
+        }
+      }
+    },
+    "deformed_carp": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:deformed_carp"
+          ]
+        }
+      }
+    },
+    "luminous_carp": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:luminous_carp"
+          ]
+        }
+      }
+    },
+    "divine_catfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:divine_catfish"
+          ]
+        }
+      }
+    },
+    "divine_jellyfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:divine_jellyfish"
+          ]
+        }
+      }
+    },
+    "end_jellyfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:end_jellyfish"
+          ]
+        }
+      }
+    },
+    "jellyfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:jellyfish"
+          ]
+        }
+      }
+    },
+    "starfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:starfish"
+          ]
+        }
+      }
+    },
+    "end_starfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:end_starfish"
+          ]
+        }
+      }
+    },
+    "ice_cod": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:ice_cod"
+          ]
+        }
+      }
+    },
+    "luminous_mackerel": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:luminous_mackerel"
+          ],
+          "count": 1
+        }
+      }
+    },
+    "ordinary_mackerel": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:ordinary_mackerel"
+          ]
+        }
+      }
+    },
+    "mangrove_jack": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:mangrove_jack"
+          ]
+        }
+      }
+    },
+    "ordinary_shrimp": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:ordinary_shrimp"
+          ]
+        }
+      }
+    },
+    "luminous_shrimp": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:luminous_shrimp"
+          ]
+        }
+      }
+    },
+    "muddy_catfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:muddy_catfish"
+          ]
+        }
+      }
+    },
+    "tropical_catfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:tropical_catfish"
+          ]
+        }
+      }
+    },
+    "red_koi": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:red_koi"
+          ]
+        }
+      }
+    },
+    "yellow_koi": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:yellow_koi"
+          ]
+        }
+      }
+    },
+    "thunderfin": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:thunderfin"
+          ]
+        }
+      }
+    },
+    "ordinary_catfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:ordinary_catfish"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cod"
+    ],
+    [
+      "ordinary_catfish"
+    ],
+    [
+      "thunderfin"
+    ],
+    [
+      "yellow_koi"
+    ],
+    [
+      "red_koi"
+    ],
+    [
+      "tropical_catfish"
+    ],
+    [
+      "muddy_catfish"
+    ],
+    [
+      "luminous_shrimp"
+    ],
+    [
+      "ordinary_shrimp"
+    ],
+    [
+      "mangrove_jack"
+    ],
+    [
+      "ordinary_mackerel"
+    ],
+    [
+      "luminous_mackerel"
+    ],
+    [
+      "ice_cod"
+    ],
+    [
+      "end_starfish"
+    ],
+    [
+      "starfish"
+    ],
+    [
+      "jellyfish"
+    ],
+    [
+      "end_jellyfish"
+    ],
+    [
+      "divine_jellyfish"
+    ],
+    [
+      "divine_catfish"
+    ],
+    [
+      "luminous_carp"
+    ],
+    [
+      "deformed_carp"
+    ],
+    [
+      "ordinary_carp"
+    ],
+    [
+      "anglerfish"
+    ],
+    [
+      "salmon"
+    ],
+    [
+      "pufferfish"
+    ],
+    [
+      "tropical_fish"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

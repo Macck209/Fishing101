@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "fishing101:item/copper_fishing_rod_cast"
-  }
-}

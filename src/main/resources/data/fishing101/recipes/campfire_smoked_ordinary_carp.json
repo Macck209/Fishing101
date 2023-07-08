@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "fishing101:ordinary_carp"
+  },
+  "result": "fishing101:smoked_ordinary_carp",
+  "experience": 0.5,
+  "cookingtime": 800
+}

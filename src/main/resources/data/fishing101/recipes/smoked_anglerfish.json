@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "fishing101:anglerfish"
+  },
+  "result": "fishing101:smoked_anglerfish",
+  "experience": 0.8,
+  "cookingtime": 400
+}

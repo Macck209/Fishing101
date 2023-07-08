@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:copper_block"
+  },
+  "base": {
+    "item": "fishing101:thunderfin"
+  },
+  "addition": {
+    "item": "minecraft:copper_block"
+  },
+  "result": {
+    "item": "fishing101:charged_thunderfin",
+    "count": 1
+  }
+}

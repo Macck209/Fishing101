@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "fishing101:jellyfish"
+    },
+    {
+      "item": "minecraft:scute"
+    }
+  ],
+  "result": {
+    "item": "fishing101:thick_goo",
+    "count": 1
+  }
+}

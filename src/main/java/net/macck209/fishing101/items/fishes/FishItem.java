@@ -18,6 +18,8 @@ public class FishItem extends Item implements PolymerItem {
     public static final TextColor LUMINOUS;
     public static final TextColor MANGROVE;
     public static final TextColor JELLYFISH;
+    public static final TextColor END;
+    public static final TextColor ANGLER;
 
 
     public FishItem(Settings settings, Item polymerItem) {
@@ -38,5 +40,7 @@ public class FishItem extends Item implements PolymerItem {
         LUMINOUS=TextColor.parse("#00cda0");
         MANGROVE=TextColor.parse("#773731");
         JELLYFISH=TextColor.parse("#00e3e0");
+        END=TextColor.parse("#e0e49e");
+        ANGLER=TextColor.parse("#1d3b6d");
     }
 }

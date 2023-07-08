@@ -1,8 +1,10 @@
 package net.macck209.fishing101;
 
+import net.macck209.fishing101.items.FishBookItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
 import net.macck209.fishing101.registries.ItemRegistry;
 import net.macck209.fishing101.registries.LootRegistry;
+import net.macck209.fishing101.util.LootModifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,9 +16,13 @@ public class Fishing101Initializer implements net.fabricmc.api.ModInitializer {
 	public void onInitialize() {
 		ItemRegistry.register();
 		LootRegistry.register();
+		LootModifier.modifyLootTables();
+
+		FishBookItem.build("fish_book");
+		FishBookItem.build("meal_book");
 
 		PolymerTextures.setup(MOD_ID);
 
-		LOGGER.info("AA!! Something bit my toe!");
+		LOGGER.info("AAA!! Something bit my toe!");
 	}
 }

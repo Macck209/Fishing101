@@ -9,9 +9,11 @@ import net.minecraft.loot.condition.TimeCheckLootCondition;
 import net.minecraft.loot.condition.WeatherCheckLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
+import net.minecraft.predicate.LightPredicate;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeKeys;
 
 public class LootRegistry {
@@ -24,10 +26,16 @@ public class LootRegistry {
     public static final LootCondition.Builder NEEDS_MANGROVE;
     public static final LootCondition.Builder NEEDS_JAPAN;
     public static final LootCondition.Builder NEEDS_BEACH;
-    public static final LootCondition.Builder NEEDS_DEEP_DARK;
     public static final LootCondition.Builder ABOVE_Y90;
     public static final LootCondition.Builder IS_RAINING;
     public static final LootCondition.Builder IS_STORMY;
+    public static final LootCondition.Builder NEEDS_END;
+    public static final LootCondition.Builder NEEDS_COLD;
+    public static final LootCondition.Builder NEEDS_DARKNESS;
+    public static final LootCondition.Builder BELOW_Y0;
+    public static final LootCondition.Builder NEEDS_DEEP_DARK;
+
+
 
     public static void register() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
@@ -35,6 +43,7 @@ public class LootRegistry {
                 tableBuilder.modifyPools(tb ->{
                     tb
                     .with(ItemEntry.builder(Items.COD)
+                            .conditionally(NEEDS_COLD.invert())
                             .weight(4000-60))
                     .with(ItemEntry.builder(Items.SALMON)
                             .weight(2000-25))
@@ -96,9 +105,40 @@ public class LootRegistry {
                             .conditionally(NEEDS_NIGHT)
                             .weight((240)))
 
+                    .with(ItemEntry.builder(ItemRegistry.STARFISH)
+                            .conditionally(NEEDS_OCEAN_BIOME)
+                            .conditionally(NEEDS_END.invert())
+                            .weight((1000)))
+
                     .with(ItemEntry.builder(ItemRegistry.JELLYFISH)
                             .conditionally(NEEDS_OCEAN_BIOME)
+                            .conditionally(NEEDS_END.invert())
                             .weight((600)))
+                    .with(ItemEntry.builder(ItemRegistry.DIVINE_JELLYFISH)
+                            .conditionally(NEEDS_OCEAN_BIOME)
+                            .weight((40)))
+
+                    .with(ItemEntry.builder(ItemRegistry.RED_KOI)
+                            .conditionally(NEEDS_JAPAN)
+                            .weight((1000)))
+                    .with(ItemEntry.builder(ItemRegistry.YELLOW_KOI)
+                            .conditionally(NEEDS_JAPAN)
+                            .weight((1000)))
+
+                    .with(ItemEntry.builder(ItemRegistry.ICE_COD)
+                            .conditionally(NEEDS_COLD)
+                            .weight((4000)))
+
+                    .with(ItemEntry.builder(ItemRegistry.ANGLERFISH)
+                            .conditionally(NEEDS_DARKNESS)
+                            .conditionally(NEEDS_END.invert())
+                            .conditionally(BELOW_Y0)
+                            .weight((240)))
+                    .with(ItemEntry.builder(ItemRegistry.ANGLERFISH)
+                            .conditionally(NEEDS_DARKNESS)
+                            .conditionally(NEEDS_DEEP_DARK)
+                            .weight((760)))
+
 
                     // Rarer fish are more common when it's raining
                     .with(ItemEntry.builder(Items.PUFFERFISH)
@@ -108,6 +148,23 @@ public class LootRegistry {
                             .conditionally(NOT_OCEAN_BIOME)
                             .conditionally(IS_RAINING)
                             .weight(60))
+                    .with(ItemEntry.builder(ItemRegistry.DIVINE_JELLYFISH)
+                            .conditionally(NEEDS_OCEAN_BIOME)
+                            .conditionally(IS_RAINING)
+                            .weight(60))
+
+                    .with(ItemEntry.builder(ItemRegistry.THUNDERFIN)
+                            .conditionally(IS_STORMY)
+                            .weight(200))
+
+
+                    // End fish
+                    .with(ItemEntry.builder(ItemRegistry.END_JELLYFISH)
+                            .conditionally(NEEDS_END)
+                            .weight((1000)))
+                    .with(ItemEntry.builder(ItemRegistry.END_STARFISH)
+                            .conditionally(NEEDS_END)
+                            .weight((1000)))
                 ;});
             }
         });
@@ -115,7 +172,7 @@ public class LootRegistry {
 
 
     static {
-        // Note: Fish occurrence isn't super realistic. I'm more focused on making the mod fun. Feel free to modify stuff on you own tho
+        // Note: Fish distribution isn't super realistic. I'm more focused on making the mod fun. Feel free to modify stuff your way tho
         NEEDS_OCEAN_BIOME = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.OCEAN))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.COLD_OCEAN)))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_COLD_OCEAN)))
@@ -140,9 +197,21 @@ public class LootRegistry {
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.MEADOW)));
         NEEDS_BEACH = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.BEACH))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.SNOWY_BEACH)));
-        NEEDS_DEEP_DARK = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_DARK));
         ABOVE_Y90 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.FloatRange.atLeast(90)));
         IS_RAINING = WeatherCheckLootCondition.create().raining(true).or(WeatherCheckLootCondition.create().thundering(true));
         IS_STORMY = WeatherCheckLootCondition.create().thundering(true);
+        NEEDS_END = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().dimension(World.END));
+        NEEDS_COLD = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.SNOWY_BEACH))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.SNOWY_PLAINS)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.SNOWY_SLOPES)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.SNOWY_TAIGA)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.ICE_SPIKES)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FROZEN_OCEAN)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FROZEN_PEAKS)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FROZEN_RIVER)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_FROZEN_OCEAN)));
+        NEEDS_DARKNESS = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().light(LightPredicate.Builder.create().light(NumberRange.IntRange.atMost(0)).build()));
+        BELOW_Y0 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.FloatRange.atMost(0)));
+        NEEDS_DEEP_DARK = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_DARK));
     }
 }
