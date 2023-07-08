@@ -12,8 +12,10 @@ Mod is fully serverside, but resource pack is strongly recommended `/polymer gen
 
 To learn about the mod read the books: _Fisherman's Journal_ and _Johnny's Cook Book_.
 
-<details class="spoiler">
-    <summary>Click to reveal spoiler images</summary>
+<details>
+    <summary style="cursor: pointer;font-weight: bold;">
+        Click to reveal spoiler images
+    </summary>
 
 ""Ascending"" after eating a Divine Catfish
     <img src="images/catfish_eating.png" alt="Image Description">
@@ -28,11 +30,3 @@ Charging Thunderfin
 Huge thanks to Patbox and his [Polymer library](https://github.com/Patbox/polymer).
 
 More content to come. Feel free to give feedback.
-
-
-<style>
-.spoiler > summary {
-    cursor: pointer;
-    font-weight: bold;
-}
-</style>
