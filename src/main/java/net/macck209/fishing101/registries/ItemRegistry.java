@@ -277,8 +277,8 @@ public class ItemRegistry {
                     .statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 180 * 20), 1).build()),
             Items.DRIED_KELP,"Thick Goo", FishItem.ORDINARY));
 
-    public static final Item FISH_BOOK = registerItem("fish_book", new FishBookItem(new Item.Settings()));
-    public static final Item MEAL_BOOK = registerItem("meal_book", new MealBookItem(new Item.Settings()));
+    public static final Item FISH_BOOK = registerItem("fish_book", new FishBookItem(new Item.Settings().maxCount(1)));
+    public static final Item MEAL_BOOK = registerItem("meal_book", new MealBookItem(new Item.Settings().maxCount(1)));
 
     public static Item registerItem(String path, Item item) {
         Registry.register(Registries.ITEM, new Identifier(Fishing101Initializer.MOD_ID, path), item);

@@ -74,7 +74,8 @@ public class FishBookItem extends Item implements PolymerItem {
         FishGui.BOOKS.clear();
 
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.intro")
+                //Text.translatable("books.fishing101.fish_book.intro")
+                Text.literal("Journal Entry: July 16, 1878\n\nAvast, me hearties! 'Tis the start of me grandest quest. This log'll jot down every fish I reel in, from giant beauts to sneaky minnows. Brace yerselves for tales from the deep, as we dive into the secrets of the briny deep!")
         );
 
         IndexGui.book = builder.asStack();

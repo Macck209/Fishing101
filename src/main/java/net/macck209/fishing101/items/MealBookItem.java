@@ -57,7 +57,7 @@ public class MealBookItem extends Item implements PolymerItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.hasNbt()) {
             NbtCompound nbtCompound = stack.getNbt();
-            String string = string = "Johnny Gourmet";
+            String string = "Johnny Gourmet";
             if (!StringHelper.isEmpty(string)) {
                 tooltip.add(Text.translatable("book.byAuthor", string).formatted(Formatting.GRAY));
             }
@@ -74,7 +74,8 @@ public class MealBookItem extends Item implements PolymerItem {
         FishGui.BOOKS.clear();
 
         builder.addPage(
-                Text.translatable("books.fishing101.meal_book.intro")
+                //Text.translatable("books.fishing101.meal_book.intro")
+                Text.literal("Introduction:\n\nWelcome to a culinary odyssey. Join me in unraveling the secrets of exquisite flavors as we delve into the art of cooking. Let's create delicious masterpieces together. Bon appétit!")
         );
 
         IndexGui.book = builder.asStack();
