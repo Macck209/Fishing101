@@ -1,6 +1,7 @@
 package net.macck209.fishing101;
 
 import net.macck209.fishing101.items.FishBookItem;
+import net.macck209.fishing101.items.MealBookItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
 import net.macck209.fishing101.registries.ItemRegistry;
 import net.macck209.fishing101.registries.LootRegistry;
@@ -18,8 +19,8 @@ public class Fishing101Initializer implements net.fabricmc.api.ModInitializer {
 		LootRegistry.register();
 		LootModifier.modifyLootTables();
 
-		FishBookItem.build("fish_book");
-		FishBookItem.build("meal_book");
+		FishBookItem.build();
+		MealBookItem.build();
 
 		PolymerTextures.setup(MOD_ID);
 

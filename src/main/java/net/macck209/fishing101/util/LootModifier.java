@@ -65,7 +65,7 @@ public class LootModifier {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.2f))
-                        .with(ItemEntry.builder(ItemRegistry.FISH_BOOK))
+                        .with(ItemEntry.builder(ItemRegistry.MEAL_BOOK))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
                 tableBuilder.pool(poolBuilder.build());
             }

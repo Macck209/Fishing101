@@ -24,9 +24,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FishBookItem extends Item implements PolymerItem {
+public class MealBookItem extends Item implements PolymerItem {
 
-    public FishBookItem(Item.Settings settings) {
+    public MealBookItem(Settings settings) {
         super(settings);
     }
 
@@ -35,7 +35,7 @@ public class FishBookItem extends Item implements PolymerItem {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable("Fisherman's Journal");
+        return Text.translatable("Johnny's Cook Book");
     }
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
@@ -57,7 +57,7 @@ public class FishBookItem extends Item implements PolymerItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.hasNbt()) {
             NbtCompound nbtCompound = stack.getNbt();
-            String string = "Fisherman Finn";
+            String string = string = "Johnny Gourmet";
             if (!StringHelper.isEmpty(string)) {
                 tooltip.add(Text.translatable("book.byAuthor", string).formatted(Formatting.GRAY));
             }
@@ -74,7 +74,7 @@ public class FishBookItem extends Item implements PolymerItem {
         FishGui.BOOKS.clear();
 
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.intro")
+                Text.translatable("books.fishing101.meal_book.intro")
         );
 
         IndexGui.book = builder.asStack();

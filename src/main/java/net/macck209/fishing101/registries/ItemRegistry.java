@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.macck209.fishing101.Fishing101Initializer;
 import net.macck209.fishing101.items.FishBookItem;
+import net.macck209.fishing101.items.MealBookItem;
 import net.macck209.fishing101.items.fishes.AutoFishItem;
 import net.macck209.fishing101.items.fishes.FishItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
@@ -276,8 +277,8 @@ public class ItemRegistry {
                     .statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 180 * 20), 1).build()),
             Items.DRIED_KELP,"Thick Goo", FishItem.ORDINARY));
 
-    public static final Item FISH_BOOK = registerItem("fish_book", new FishBookItem(new Item.Settings(),"fish_book"));
-    public static final Item MEAL_BOOK = registerItem("meal_book", new FishBookItem(new Item.Settings(),"meal_book"));
+    public static final Item FISH_BOOK = registerItem("fish_book", new FishBookItem(new Item.Settings()));
+    public static final Item MEAL_BOOK = registerItem("meal_book", new MealBookItem(new Item.Settings()));
 
     public static Item registerItem(String path, Item item) {
         Registry.register(Registries.ITEM, new Identifier(Fishing101Initializer.MOD_ID, path), item);
