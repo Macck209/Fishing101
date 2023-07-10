@@ -74,8 +74,91 @@ public class MealBookItem extends Item implements PolymerItem {
         FishGui.BOOKS.clear();
 
         builder.addPage(
-                //Text.translatable("books.fishing101.meal_book.intro")
-                Text.literal("Introduction:\n\nWelcome to a culinary odyssey. Join me in unraveling the secrets of exquisite flavors as we delve into the art of cooking. Let's create delicious masterpieces together. Bon appétit!")
+                //Text.translatable("books.fishing101.meal_book.intro") <- todo in future
+                Text.literal("  Introduction\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal( "Welcome to my culinary odyssey! " +
+                        "Join me in unraveling the secrets of exquisite flavors as we delve into the art of cooking. " +
+                        "Let's create delicious masterpieces together. " +
+                        "Bon appétit!")
+        );
+        builder.addPage(
+                Text.literal("Dough\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal( "- Wheat\n"+
+                        "- Egg")
+        );
+        builder.addPage(
+                Text.literal("Noodles\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal("Cook a Dough in a Furnace")
+        );
+        builder.addPage(
+                Text.literal("Rice\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Obtaining\n").formatted(Formatting.UNDERLINE),
+                Text.literal( "Found among Grass in Cherry Groves")
+        );
+        builder.addPage(
+                Text.literal("Tentacle\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Obtaining\n").formatted(Formatting.UNDERLINE),
+                Text.literal("Chop 'em, those Squids!")
+        );
+        builder.addPage(
+                Text.literal("Cooked Tentacle\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal("Cook a Tentacle in a Furnace")
+        );
+        builder.addPage(
+                Text.literal("Chicken Broth\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal( "- Bowl\n" +
+                        "- Noodles\n"+
+                        "- Raw Chicken")
+        );
+        builder.addPage(
+                Text.literal("Purple Pasta\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal( "- Bowl\n" +
+                        "- Noodles\n"+
+                        "- Cooked Porkchop\n"+
+                        "- Chorus Fruit")
+        );
+        builder.addPage(
+                Text.literal("Spaghetti Frutti di Mare\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal( "- Bowl\n" +
+                        "- Noodles\n"+
+                        "- Cooked Tentacle\n"+
+                        "- Any Smoked Shrimp")
+        );
+        builder.addPage(
+                Text.literal("Starfish Shashlik\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal("- Starfish\n"+
+                        "- Stick")
+        );
+        builder.addPage(
+                Text.literal("End Starfish Shashlik\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal("- End Starfish\n"+
+                        "- Stick")
+        );
+        builder.addPage(
+                Text.literal("Sushi\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal("- Rice\n" +
+                        "- Kelp\n"+
+                        "- Raw Salmon")
+        );
+        builder.addPage(
+                Text.literal("Thick Goo\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal("- Jellyfish\n" +
+                        "- Scute")
+        );
+        builder.addPage(
+                Text.literal("Charged Thunderfin\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal("Charge a Thunderfin in a Smithing Table with 2 Copper Blocks")
         );
 
         IndexGui.book = builder.asStack();
