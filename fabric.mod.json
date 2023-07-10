@@ -4,13 +4,13 @@
 	"version": "${version}",
 
 	"name": "Fishing 101",
-	"description": "Fishing 101 ads more fish to catch in different biomes!",
+	"description": "Fishing 101 adds more fish to catch in different biomes!",
 	"authors": [
 		"Macck209"
 	],
 	"contact": {
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/fishing101/icon.png",
 	"environment": "*",
 	"entrypoints": {
