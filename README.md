@@ -3,7 +3,7 @@ Adds 23 new aquatic life forms to the game (items, not entities).
 Mod is fully serverside, but resource pack is strongly recommended `/polymer generate-packs`.
 
 ### Features:
-- 48 items.
+- 49 items.
 - Time-of-day-specific fishes (also: biome-specific, weather-specific, height-specific).
 - Different fish types have different rarities and food stats.
 - Some fish can __only__ be cooked or __only__ be smoked (yay - new usage for smokers!).

@@ -82,6 +82,17 @@ public class MealBookItem extends Item implements PolymerItem {
                         "Bon appétit!")
         );
         builder.addPage(
+                Text.literal("Bone Meal\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal( "Made from Fish Bones")
+        );
+        builder.addPage(
+                Text.literal("Slimeball\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
+                Text.literal( "- Thick Goo\n" +
+                        "- Green Dye")
+        );
+        builder.addPage(
                 Text.literal("Dough\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
                 Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
                 Text.literal( "- Wheat\n"+
@@ -152,8 +163,7 @@ public class MealBookItem extends Item implements PolymerItem {
         builder.addPage(
                 Text.literal("Thick Goo\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
                 Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("- Jellyfish\n" +
-                        "- Scute")
+                Text.literal("Cook a Jellyfish or an End Jellyfish in a Furnace or a Campfire")
         );
         builder.addPage(
                 Text.literal("Charged Thunderfin\n\n").formatted(Formatting.BOLD,Formatting.GOLD),

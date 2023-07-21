@@ -1,9 +1,9 @@
 {
   "type": "minecraft:campfire_cooking",
   "ingredient": {
-    "item": "fishing101:ice_cod"
+    "item": "fishing101:end_jellyfish"
   },
-  "result": "minecraft:snowball",
+  "result": "fishing101:thick_goo",
   "experience": 0,
   "cookingtime": 600
 }
