@@ -18,6 +18,7 @@ import net.minecraft.world.biome.BiomeKeys;
 
 public class LootRegistry {
     private static final Identifier FISHING_FISH_LOOT_TABLE_ID = LootTables.FISHING_FISH_GAMEPLAY;
+    // private static final Identifier FISHING_TREASURE_LOOT_TABLE_ID = LootTables.FISHING_TREASURE_GAMEPLAY;
     public static final LootCondition.Builder NEEDS_OCEAN_BIOME;
     public static final LootCondition.Builder NOT_OCEAN_BIOME;
     public static final LootCondition.Builder NEEDS_SWAMP_BIOME;
@@ -68,7 +69,7 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_CARP)
                             .conditionally(NOT_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight(240))
+                            .weight(250))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_CATFISH)
                             .conditionally(NOT_OCEAN_BIOME)
@@ -91,7 +92,7 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_MACKEREL)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight(240))
+                            .weight(250))
 
                     .with(ItemEntry.builder(ItemRegistry.MANGROVE_JACK)
                             .conditionally(NEEDS_MANGROVE)
@@ -103,7 +104,7 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_SHRIMP)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight((240)))
+                            .weight((250)))
 
                     .with(ItemEntry.builder(ItemRegistry.STARFISH)
                             .conditionally(NEEDS_OCEAN_BIOME)
@@ -133,11 +134,11 @@ public class LootRegistry {
                             .conditionally(NEEDS_DARKNESS)
                             .conditionally(NEEDS_END.invert())
                             .conditionally(BELOW_Y0)
-                            .weight((240)))
+                            .weight((250)))
                     .with(ItemEntry.builder(ItemRegistry.ANGLERFISH)
                             .conditionally(NEEDS_DARKNESS)
                             .conditionally(NEEDS_DEEP_DARK)
-                            .weight((760)))
+                            .weight((750)))
 
 
                     // Rarer fish are more common when it's raining
@@ -172,7 +173,7 @@ public class LootRegistry {
 
 
     static {
-        // Note: Fish distribution isn't super realistic. I'm more focused on making the mod fun. Feel free to modify stuff your way tho
+        // Note: Fish distribution isn't realistic. I'm more focused on making the mod fun. Feel free to modify stuff your way tho
         NEEDS_OCEAN_BIOME = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.OCEAN))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.COLD_OCEAN)))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_COLD_OCEAN)))

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "fishing101:fish_bones"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bone_meal",
+    "count": 2
+  }
+}

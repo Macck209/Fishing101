@@ -31,35 +31,66 @@ import java.util.Objects;
 public class AutoFishItem extends FishItem {
     private final String name;
     private final TextColor color;
-    private final Boolean isStew;
     private final Boolean isChorus;
     private final Boolean isCharged;
     private final Item returnItem;
 
     public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color) {
-        this(settings, polymerItem, name, color, false, false, false, Items.EGG);
+        this(settings, polymerItem, name, color, false, false, Items.EGG);
     }
 
-    public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color, Item returnItem) {
-        this(settings, polymerItem, name, color, false, false, false, returnItem);
-    }
-
-    public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color, Boolean isCharged) {
-        this(settings, polymerItem, name, color, false, false, isCharged, Items.EGG);
-    }
-
-    public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color, Boolean isStew, Boolean isChorus) {
-        this(settings, polymerItem, name, color, isStew, isChorus, false, Items.EGG);
-    }
-
-    public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color, Boolean isStew, Boolean isChorus, Boolean isCharged, Item returnItem) {
+    public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color, Boolean isChorus, Boolean isCharged, Item returnItem) {
         super(settings, polymerItem);
         this.name = name;
         this.color = color;
-        this.isStew = isStew;
         this.isChorus = isChorus;
         this.isCharged = isCharged;
         this.returnItem = returnItem;
+    }
+
+    private AutoFishItem(Builder builder) {
+        super(builder.settings, builder.polymerItem);
+        this.name = builder.name;
+        this.color = builder.color;
+        this.isChorus = builder.isChorus;
+        this.isCharged = builder.isCharged;
+        this.returnItem = builder.returnItem;
+    }
+
+    public static class Builder {
+        private Settings settings;
+        private Item polymerItem;
+        private String name;
+        private TextColor color;
+        private Boolean isChorus = false;
+        private Boolean isCharged = false;
+        private Item returnItem = Items.EGG;
+
+        public Builder(Settings settings, Item polymerItem, String name, TextColor color) {
+            this.settings = settings;
+            this.polymerItem = polymerItem;
+            this.name = name;
+            this.color = color;
+        }
+
+        public Builder isChorus() {
+            this.isChorus = true;
+            return this;
+        }
+
+        public Builder isCharged() {
+            this.isCharged = true;
+            return this;
+        }
+
+        public Builder returnItem(Item returnItem) {
+            this.returnItem = returnItem;
+            return this;
+        }
+
+        public AutoFishItem build() {
+            return new AutoFishItem(this);
+        }
     }
 
     @Override
@@ -118,12 +149,12 @@ public class AutoFishItem extends FishItem {
                 world.playSound(d, e, f, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 2.0F, 0.7F, false);
             }
 
-            if(returnItem!=Items.EGG){
-                user.dropItem(returnItem, 0);
-            }
-
             if(name.equals("Ice Cod")){
                 user.setFrozenTicks(200);
+            }
+
+            if(returnItem!=Items.EGG){
+                user.dropItem(returnItem, 0);
             }
         }
         return itemStack;
