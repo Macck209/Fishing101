@@ -31,10 +31,10 @@ public class LootModifier {
             if(GRASS_BLOCK_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.02f))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
                         .conditionally(LootRegistry.NEEDS_JAPAN)
                         .with(ItemEntry.builder(ItemRegistry.RICE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 4.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 3.0f)).build());
                 tableBuilder.pool(poolBuilder.build());
             }
             if(SQUID_ID.equals(id) || GLOW_SQUID_ID.equals(id)) {

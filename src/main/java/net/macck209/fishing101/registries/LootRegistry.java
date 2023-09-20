@@ -45,31 +45,31 @@ public class LootRegistry {
                     tb
                     .with(ItemEntry.builder(Items.COD)
                             .conditionally(NEEDS_COLD.invert())
-                            .weight(4000-60))
+                            .weight(3000-60))
                     .with(ItemEntry.builder(Items.SALMON)
-                            .weight(2000-25))
+                            .weight(1000-25))
                     .with(ItemEntry.builder(Items.PUFFERFISH)
-                            .weight(240-2))
+                            .weight(250-2))
                     .with(ItemEntry.builder(Items.TROPICAL_FISH)
-                            .weight(600-13))
+                            .weight(500-13))
 
                     .with(ItemEntry.builder(Items.SALMON)
                             .conditionally(ABOVE_Y90)
                             .weight(3000))
                     .with(ItemEntry.builder(Items.TROPICAL_FISH)
                             .conditionally(NEEDS_JUNGLE_BIOME)
-                            .weight(1400))
+                            .weight(1500))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_CARP)
                             .conditionally(NOT_OCEAN_BIOME)
                             .weight(3000))
                     .with(ItemEntry.builder(ItemRegistry.DEFORMED_CARP)
                             .conditionally(NOT_OCEAN_BIOME)
-                            .weight(800))
+                            .weight(1000))
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_CARP)
                             .conditionally(NOT_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight(250))
+                            .weight(500))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_CATFISH)
                             .conditionally(NOT_OCEAN_BIOME)
@@ -84,7 +84,7 @@ public class LootRegistry {
                             .weight(3000))
                     .with(ItemEntry.builder(ItemRegistry.DIVINE_CATFISH)
                             .conditionally(NOT_OCEAN_BIOME)
-                            .weight(40))
+                            .weight(100))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_MACKEREL)
                             .conditionally(NEEDS_OCEAN_BIOME)
@@ -92,11 +92,11 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_MACKEREL)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight(250))
+                            .weight(500))
 
                     .with(ItemEntry.builder(ItemRegistry.MANGROVE_JACK)
                             .conditionally(NEEDS_MANGROVE)
-                            .weight((1000)))
+                            .weight((2000)))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_SHRIMP)
                             .conditionally(NEEDS_OCEAN_BIOME)
@@ -104,68 +104,68 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_SHRIMP)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_NIGHT)
-                            .weight((250)))
+                            .weight((500)))
 
                     .with(ItemEntry.builder(ItemRegistry.STARFISH)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_END.invert())
-                            .weight((1000)))
+                            .weight((1200)))
 
                     .with(ItemEntry.builder(ItemRegistry.JELLYFISH)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(NEEDS_END.invert())
-                            .weight((600)))
+                            .weight((1200)))
                     .with(ItemEntry.builder(ItemRegistry.DIVINE_JELLYFISH)
                             .conditionally(NEEDS_OCEAN_BIOME)
-                            .weight((40)))
+                            .weight((100)))
 
                     .with(ItemEntry.builder(ItemRegistry.RED_KOI)
                             .conditionally(NEEDS_JAPAN)
-                            .weight((1000)))
+                            .weight((1200)))
                     .with(ItemEntry.builder(ItemRegistry.YELLOW_KOI)
                             .conditionally(NEEDS_JAPAN)
-                            .weight((1000)))
+                            .weight((1200)))
 
                     .with(ItemEntry.builder(ItemRegistry.ICE_COD)
                             .conditionally(NEEDS_COLD)
-                            .weight((4000)))
+                            .weight((3000)))
 
                     .with(ItemEntry.builder(ItemRegistry.ANGLERFISH)
                             .conditionally(NEEDS_DARKNESS)
                             .conditionally(NEEDS_END.invert())
                             .conditionally(BELOW_Y0)
-                            .weight((250)))
+                            .weight((500)))
                     .with(ItemEntry.builder(ItemRegistry.ANGLERFISH)
                             .conditionally(NEEDS_DARKNESS)
                             .conditionally(NEEDS_DEEP_DARK)
-                            .weight((750)))
+                            .weight((1000)))
 
 
                     // Rarer fish are more common when it's raining
                     .with(ItemEntry.builder(Items.PUFFERFISH)
                             .conditionally(IS_RAINING)
-                            .weight(560))
+                            .weight(500))
                     .with(ItemEntry.builder(ItemRegistry.DIVINE_CATFISH)
                             .conditionally(NOT_OCEAN_BIOME)
                             .conditionally(IS_RAINING)
-                            .weight(60))
+                            .weight(100))
                     .with(ItemEntry.builder(ItemRegistry.DIVINE_JELLYFISH)
                             .conditionally(NEEDS_OCEAN_BIOME)
                             .conditionally(IS_RAINING)
-                            .weight(60))
+                            .weight(100))
 
                     .with(ItemEntry.builder(ItemRegistry.THUNDERFIN)
                             .conditionally(IS_STORMY)
-                            .weight(200))
+                            .weight(500))
 
 
                     // End fish
                     .with(ItemEntry.builder(ItemRegistry.END_JELLYFISH)
                             .conditionally(NEEDS_END)
-                            .weight((1000)))
+                            .weight((1200)))
                     .with(ItemEntry.builder(ItemRegistry.END_STARFISH)
                             .conditionally(NEEDS_END)
-                            .weight((1000)))
+                            .weight((1200)))
                 ;});
             }
         });
@@ -192,7 +192,7 @@ public class LootRegistry {
         NEEDS_JUNGLE_BIOME = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.JUNGLE))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.BAMBOO_JUNGLE)))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.SPARSE_JUNGLE)));
-        NEEDS_NIGHT = TimeCheckLootCondition.create(BoundedIntUnaryOperator.create(12000,24000));
+        NEEDS_NIGHT = TimeCheckLootCondition.create(BoundedIntUnaryOperator.create(12000,24000)).period(24000);
         NEEDS_MANGROVE = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.MANGROVE_SWAMP));
         NEEDS_JAPAN = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.CHERRY_GROVE))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.MEADOW)));
