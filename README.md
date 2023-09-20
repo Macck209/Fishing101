@@ -1,6 +1,6 @@
 # Fishing101
 Adds 23 new aquatic life forms to the game (items, not entities).
-Mod is fully serverside, but resource pack is strongly recommended `/polymer generate-packs`.
+Mod is fully serverside, but resource pack is strongly recommended `/polymer generate-pack`.
 
 ### Features:
 - 49 items.
