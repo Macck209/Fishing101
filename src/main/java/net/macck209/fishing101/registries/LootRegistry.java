@@ -18,7 +18,7 @@ import net.minecraft.world.biome.BiomeKeys;
 
 public class LootRegistry {
     private static final Identifier FISHING_FISH_LOOT_TABLE_ID = LootTables.FISHING_FISH_GAMEPLAY;
-    // private static final Identifier FISHING_TREASURE_LOOT_TABLE_ID = LootTables.FISHING_TREASURE_GAMEPLAY;
+    private static final Identifier FISHING_TREASURE_LOOT_TABLE_ID = LootTables.FISHING_TREASURE_GAMEPLAY;
     public static final LootCondition.Builder NEEDS_OCEAN_BIOME;
     public static final LootCondition.Builder NOT_OCEAN_BIOME;
     public static final LootCondition.Builder NEEDS_SWAMP_BIOME;
@@ -35,6 +35,13 @@ public class LootRegistry {
     public static final LootCondition.Builder NEEDS_DARKNESS;
     public static final LootCondition.Builder BELOW_Y0;
     public static final LootCondition.Builder NEEDS_DEEP_DARK;
+    public static final LootCondition.Builder NEEDS_WARM_OCEAN_OR_BEACH;
+    public static final LootCondition.Builder NEEDS_MUSHROOM_FIELDS;
+    public static final LootCondition.Builder NEEDS_FLOWER_FOREST;
+    public static final LootCondition.Builder NEEDS_BAMBOO_JUNGLE;
+    public static final LootCondition.Builder ABOVE_Y128;
+    public static final LootCondition.Builder NEEDS_COLD_OCEAN;
+    public static final LootCondition.Builder NEEDS_WARM_OCEAN_OR_JUNGLE;
 
 
 
@@ -45,12 +52,16 @@ public class LootRegistry {
                     tb
                     .with(ItemEntry.builder(Items.COD)
                             .conditionally(NEEDS_COLD.invert())
+                            .conditionally(NEEDS_JUNGLE_BIOME.invert())
                             .weight(3000-60))
                     .with(ItemEntry.builder(Items.SALMON)
+                            .conditionally(NEEDS_WARM_OCEAN_OR_BEACH.invert())
                             .weight(1000-25))
                     .with(ItemEntry.builder(Items.PUFFERFISH)
+                            .conditionally(NEEDS_WARM_OCEAN_OR_BEACH)
                             .weight(250-2))
                     .with(ItemEntry.builder(Items.TROPICAL_FISH)
+                            .conditionally(NEEDS_WARM_OCEAN_OR_JUNGLE)
                             .weight(500-13))
 
                     .with(ItemEntry.builder(Items.SALMON)
@@ -100,14 +111,16 @@ public class LootRegistry {
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_SHRIMP)
                             .conditionally(NEEDS_OCEAN_BIOME)
+                            .conditionally(NEEDS_COLD_OCEAN.invert())
                             .weight((2000)))
                     .with(ItemEntry.builder(ItemRegistry.LUMINOUS_SHRIMP)
                             .conditionally(NEEDS_OCEAN_BIOME)
+                            .conditionally(NEEDS_COLD_OCEAN.invert())
                             .conditionally(NEEDS_NIGHT)
                             .weight((500)))
 
                     .with(ItemEntry.builder(ItemRegistry.STARFISH)
-                            .conditionally(NEEDS_OCEAN_BIOME)
+                            .conditionally(NEEDS_WARM_OCEAN_OR_BEACH)
                             .conditionally(NEEDS_END.invert())
                             .weight((1200)))
 
@@ -140,6 +153,23 @@ public class LootRegistry {
                             .conditionally(NEEDS_DEEP_DARK)
                             .weight((1000)))
 
+                    .with(ItemEntry.builder(ItemRegistry.SOLARFISH)
+                            .conditionally(ABOVE_Y90)
+                            .conditionally(NEEDS_NIGHT.invert())
+                            .weight((2000)))
+
+                    .with(ItemEntry.builder(ItemRegistry.WITCHFISH)
+                            .conditionally(NEEDS_MUSHROOM_FIELDS)
+                            .weight((2000)))
+
+                    .with(ItemEntry.builder(ItemRegistry.FLOWERFISH)
+                            .conditionally(NEEDS_FLOWER_FOREST)
+                            .weight((2000)))
+
+                    .with(ItemEntry.builder(ItemRegistry.PANDAFISH)
+                            .conditionally(NEEDS_BAMBOO_JUNGLE)
+                            .weight((2000)))
+
 
                     // Rarer fish are more common when it's raining
                     .with(ItemEntry.builder(Items.PUFFERFISH)
@@ -167,6 +197,16 @@ public class LootRegistry {
                             .conditionally(NEEDS_END)
                             .weight((1200)))
                 ;});
+            }
+        });
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+            if (source.isBuiltin() && FISHING_TREASURE_LOOT_TABLE_ID.equals(id)) {
+                tableBuilder.modifyPools(tb ->{
+                    tb
+                            .with(ItemEntry.builder(ItemRegistry.CRAB_CLAW)
+                                    .conditionally(NEEDS_WARM_OCEAN_OR_BEACH)
+                                    .weight(3))
+                    ;});
             }
         });
     }
@@ -214,5 +254,18 @@ public class LootRegistry {
         NEEDS_DARKNESS = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().light(LightPredicate.Builder.create().light(NumberRange.IntRange.atMost(0)).build()));
         BELOW_Y0 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.FloatRange.atMost(0)));
         NEEDS_DEEP_DARK = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_DARK));
+        NEEDS_WARM_OCEAN_OR_BEACH = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.WARM_OCEAN))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.LUKEWARM_OCEAN)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_LUKEWARM_OCEAN)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.BEACH)));
+        NEEDS_MUSHROOM_FIELDS = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.MUSHROOM_FIELDS));
+        NEEDS_FLOWER_FOREST = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FLOWER_FOREST));
+        NEEDS_BAMBOO_JUNGLE = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.BAMBOO_JUNGLE));
+        ABOVE_Y128 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.FloatRange.atLeast(128)));
+        NEEDS_COLD_OCEAN = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FROZEN_OCEAN))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_FROZEN_OCEAN)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.COLD_OCEAN)))
+                .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_COLD_OCEAN)));
+        NEEDS_WARM_OCEAN_OR_JUNGLE = NEEDS_BAMBOO_JUNGLE.or(NEEDS_WARM_OCEAN_OR_BEACH);
     }
 }

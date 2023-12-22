@@ -98,7 +98,7 @@ public class FishBookItem extends Item implements PolymerItem {
                 Text.literal("   October 14, 1878\n\n"),
                 Text.literal("Luminous Carp\n").formatted(Formatting.BOLD),
                 Text.literal( "- Order: Cypriniformes\n" +
-                        "- Distribution: Freshwater; after dusk\n" +
+                        "- Distribution: Freshwater; Nocturnal\n" +
                         "- Can be smoked\n" +
                         "- Special effects: Luminousness")
         );
@@ -142,7 +142,7 @@ public class FishBookItem extends Item implements PolymerItem {
                 Text.literal("   November 27, 1878\n\n"),
                 Text.literal("Luminous Mackerel\n").formatted(Formatting.BOLD),
                 Text.literal( "- Order: Perciformes\n" +
-                        "- Distribution: Saltwater; after dusk\n" +
+                        "- Distribution: Saltwater; Nocturnal\n" +
                         "- Can be smoked\n" +
                         "- Special effects: Luminousness")
         );
@@ -157,14 +157,14 @@ public class FishBookItem extends Item implements PolymerItem {
                 Text.literal("   December 7, 1878\n\n"),
                 Text.literal("Shrimp\n").formatted(Formatting.BOLD),
                 Text.literal( "- Order: Decapoda\n" +
-                        "- Distribution: Saltwater\n"+
+                        "- Distribution: Thermophilic; Saltwater\n"+
                         "- Can be smoked")
         );
         builder.addPage(
                 Text.literal("   December 14, 1878\n\n"),
                 Text.literal("Luminous Shrimp\n").formatted(Formatting.BOLD),
                 Text.literal("- Order: Decapoda\n" +
-                        "- Distribution: Saltwater; after dusk\n"+
+                        "- Distribution: thermophilic; Saltwater; Nocturnal\n"+
                         "- Can be smoked\n"+
                         "- Special effects: Luminousness")
         );
@@ -215,7 +215,7 @@ public class FishBookItem extends Item implements PolymerItem {
                 Text.literal("   July 25, 1879\n\n"),
                 Text.literal("Starfish\n").formatted(Formatting.BOLD),
                 Text.literal("- Order: Paxillosida\n" +
-                        "- Distribution: Saltwater\n" +
+                        "- Distribution: Warm oceans and beaches\n" +
                         "- Makes a great shashlik" )
         );
         builder.addPage(
@@ -226,18 +226,46 @@ public class FishBookItem extends Item implements PolymerItem {
                         "- It's REALLY cold" )
         );
         builder.addPage(
+                Text.literal("   July 19, 1879\n\n"),
+                Text.literal("Solarfish\n").formatted(Formatting.BOLD),
+                Text.literal("- Order: Unknown\n" +
+                        "- Distribution: Found on sunny days, in the highest sections of the country\n" +
+                        "- Tastes funny" )
+        );
+        builder.addPage(
+                Text.literal("   August 23, 1879\n\n"),
+                Text.literal("Pandafish\n").formatted(Formatting.BOLD),
+                Text.literal("- Order: Unknown\n" +
+                        "- Distribution: Found in bamboo jungle\n" +
+                        "- Tastes funny" )
+        );
+        builder.addPage(
+                Text.literal("   September 15, 1879\n\n"),
+                Text.literal("Witchfish\n").formatted(Formatting.BOLD),
+                Text.literal("- Order: Unknown\n" +
+                        "- Distribution: Found in mushroom populated areas\n" +
+                        "- Tastes funny" )
+        );
+        builder.addPage(
+                Text.literal("   November 9, 1879\n\n"),
+                Text.literal("Flowerfish\n").formatted(Formatting.BOLD),
+                Text.literal("- Order: Unknown\n" +
+                        "- Distribution: Found in flower forests\n" +
+                        "- Tastes funny" )
+        );
+        builder.addPage(
                 Text.literal("   July XX, 19XX\n\n"),
                 Text.literal("End Jellyfish\n").formatted(Formatting.BOLD),
-                Text.literal("- Order: Semaeostomeae???\n" +
-                        "- Distribution: Where am I?\n"+
+                Text.literal("- Order: Semaeostomeae\n" +
+                        "- Distribution: Good question. Where, the heck, am I?\n"+
                         "- Potential allergic reaction")
         );
         builder.addPage(
                 Text.literal("   July XX, 19XX\n\n"),
                 Text.literal("End Starfish\n").formatted(Formatting.BOLD),
-                Text.literal("- Order: Paxillosida???\n" +
+                Text.literal("- Order: Paxillosida\n" +
                         "- Distribution: I'm starting to get worried...\n" +
-                        "- No idea if it's edible, but I'm not gonna be the one to try it" )
+                        "- I don't know if it's edible, but I'm not risking it" )
         );
 
         IndexGui.book = builder.asStack();

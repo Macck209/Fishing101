@@ -48,7 +48,16 @@
   "item.fishing101.tentacle": "Tentacle",
   "item.fishing101.cooked_tentacle": "Cooked Tentacle",
   "item.fishing101.fish_bones": "Fish Bones",
+  "item.fishing101.solarfish": "Solarfish",
+  "item.fishing101.smoked_solarfish": "Smoked Solarfish",
+  "item.fishing101.witchfish": "Witchfish",
+  "item.fishing101.smoked_witchfish": "Smoked Witchfish",
+  "item.fishing101.flowerfish": "Flowerfish",
+  "item.fishing101.smoked_flowerfish": "Smoked Flowerfish",
+  "item.fishing101.pandafish": "Pandafish",
+  "item.fishing101.smoked_pandafish": "Smoked Pandafish",
 
   "item.fishing101.fish_book": "Fisherman's Journal",
-  "item.fishing101.meal_book": "Cook Book"
+  "item.fishing101.meal_book": "Cook Book",
+  "item.fishing101.crab_claw": "Crab Claw"
 }
