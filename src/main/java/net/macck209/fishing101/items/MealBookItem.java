@@ -170,6 +170,11 @@ public class MealBookItem extends Item implements PolymerItem {
                 Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
                 Text.literal("Charge a Thunderfin in a Smithing Table with 2 Copper Blocks")
         );
+        builder.addPage(
+                Text.literal("Crab Claw\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.literal("Obtaining\n").formatted(Formatting.UNDERLINE),
+                Text.literal("Treasure fishing loot collected near beaches")
+        );
 
         IndexGui.book = builder.asStack();
     }
