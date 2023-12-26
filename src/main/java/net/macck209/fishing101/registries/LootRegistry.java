@@ -156,22 +156,22 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.SOLARFISH)
                             .conditionally(ABOVE_Y90)
                             .conditionally(NEEDS_NIGHT.invert())
-                            .weight((2000)))
+                            .weight((1000)))
 
                     .with(ItemEntry.builder(ItemRegistry.WITCHFISH)
                             .conditionally(NEEDS_MUSHROOM_FIELDS)
-                            .weight((2000)))
+                            .weight((1000)))
 
                     .with(ItemEntry.builder(ItemRegistry.FLOWERFISH)
                             .conditionally(NEEDS_FLOWER_FOREST)
-                            .weight((2000)))
+                            .weight((1000)))
 
                     .with(ItemEntry.builder(ItemRegistry.PANDAFISH)
                             .conditionally(NEEDS_BAMBOO_JUNGLE)
-                            .weight((2000)))
+                            .weight((1000)))
 
 
-                    // Rarer fish are more common when it's raining
+                    // Rare fish are more common when it's raining
                     .with(ItemEntry.builder(Items.PUFFERFISH)
                             .conditionally(IS_RAINING)
                             .weight(500))
@@ -186,7 +186,7 @@ public class LootRegistry {
 
                     .with(ItemEntry.builder(ItemRegistry.THUNDERFIN)
                             .conditionally(IS_STORMY)
-                            .weight(500))
+                            .weight(1000))
 
 
                     // End fish

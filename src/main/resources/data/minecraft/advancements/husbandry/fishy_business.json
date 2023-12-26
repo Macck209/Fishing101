@@ -276,6 +276,46 @@
           ]
         }
       }
+    },
+    "witchfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:witchfish"
+          ]
+        }
+      }
+    },
+    "flowerfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:flowerfish"
+          ]
+        }
+      }
+    },
+    "pandafish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:pandafish"
+          ]
+        }
+      }
+    },
+    "solarfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:solarfish"
+          ]
+        }
+      }
     }
   },
   "requirements": [
@@ -305,7 +345,11 @@
       "red_koi",
       "yellow_koi",
       "thunderfin",
-      "ordinary_catfish"
+      "ordinary_catfish",
+      "witchfish",
+      "flowerfish",
+      "pandafish",
+      "solarfish"
     ]
   ],
   "sends_telemetry_event": true

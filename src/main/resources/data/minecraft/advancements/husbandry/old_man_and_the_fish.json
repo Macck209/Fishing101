@@ -272,6 +272,46 @@
           ]
         }
       }
+    },
+    "witchfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:witchfish"
+          ]
+        }
+      }
+    },
+    "flowerfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:flowerfish"
+          ]
+        }
+      }
+    },
+    "pandafish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:pandafish"
+          ]
+        }
+      }
+    },
+    "solarfish": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:solarfish"
+          ]
+        }
+      }
     }
   },
   "requirements": [
@@ -352,6 +392,18 @@
     ],
     [
       "tropical_fish"
+    ],
+    [
+      "witchfish"
+    ],
+    [
+      "flowerfish"
+    ],
+    [
+      "pandafish"
+    ],
+    [
+      "solarfish"
     ]
   ],
   "rewards": {
