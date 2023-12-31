@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "fishing101:luminous_carp"
+  },
+  "result": "fishing101:smoked_luminous_carp",
+  "experience": 0.8,
+  "cookingtime": 200
+}

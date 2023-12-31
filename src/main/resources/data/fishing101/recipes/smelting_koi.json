@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": [
+    {
+      "item": "fishing101:yellow_koi"
+    },
+    {
+      "item": "fishing101:red_koi"
+    }
+  ],
+  "result": "fishing101:smoked_koi",
+  "experience": 0.5,
+  "cookingtime": 200
+}

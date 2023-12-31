@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": [
+    {
+      "item": "fishing101:witchfish"
+    }
+  ],
+  "result": "fishing101:smoked_witchfish",
+  "experience": 0.5,
+  "cookingtime": 200
+}
