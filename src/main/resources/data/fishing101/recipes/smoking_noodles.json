@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "fishing101:dough"
+  },
+  "result": "fishing101:noodles",
+  "experience": 0.2,
+  "cookingtime": 100
+}

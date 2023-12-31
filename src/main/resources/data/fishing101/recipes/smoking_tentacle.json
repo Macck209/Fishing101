@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "fishing101:tentacle"
+  },
+  "result": "fishing101:cooked_tentacle",
+  "experience": 0.2,
+  "cookingtime": 200
+}

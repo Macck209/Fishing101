@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": [
+    {
+      "item": "fishing101:flowerfish"
+    }
+  ],
+  "result": "fishing101:smoked_flowerfish",
+  "experience": 0.5,
+  "cookingtime": 200
+}
