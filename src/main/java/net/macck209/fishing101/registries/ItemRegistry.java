@@ -1,6 +1,8 @@
 package net.macck209.fishing101.registries;
 
+import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.macck209.fishing101.Fishing101Initializer;
 import net.macck209.fishing101.items.FishBookItem;
 import net.macck209.fishing101.items.MealBookItem;
@@ -15,10 +17,13 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class ItemRegistry {
@@ -47,6 +52,7 @@ public class ItemRegistry {
             Blocks.YELLOW_CONCRETE_POWDER
     );
 
+    private static final Set<Item> fishingItems = new HashSet<>();
 
     //--------------------------------------------------
     // Raw fish
@@ -284,25 +290,25 @@ public class ItemRegistry {
     );
     public static final Item SMOKED_SOLARFISH = registerItem("smoked_solarfish", new AutoFishItem.Builder(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 300 * 20,4),1)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 300 * 20,0),1).build()),
+                    .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 90 * 20,4),1)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 90 * 20,0),1).build()),
             Items.TROPICAL_FISH,"Smoked Solarfish", FishItem.SOLAR).returnItem(ItemRegistry.FISH_BONES).build()
     );
     public static final Item SMOKED_WITCHFISH = registerItem("smoked_witchfish", new AutoFishItem.Builder(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 300 * 20,0,false,false),1).build()),
+                    .statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 180 * 20,0,false,false),1).build()),
             Items.TROPICAL_FISH,"Smoked Witchfish", FishItem.WITCH).returnItem(ItemRegistry.FISH_BONES).build()
     );
     public static final Item SMOKED_FLOWERFISH = registerItem("smoked_flowerfish", new AutoFishItem.Builder(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 300 * 20,3),1)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 300 * 20,0),1).build()),
+                    .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 90 * 20,3),1)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 90 * 20,0),1).build()),
             Items.TROPICAL_FISH,"Smoked Flowerfish", FishItem.FLOWER).returnItem(ItemRegistry.FISH_BONES).build()
     );
     public static final Item SMOKED_PANDAFISH = registerItem("smoked_pandafish", new AutoFishItem.Builder(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 300 * 20,1),1)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 300 * 20,1),1).build()),
+                    .statusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 180 * 20,0),1)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 180 * 20,2),1).build()),
             Items.TROPICAL_FISH,"Smoked Pandafish", FishItem.PANDA).returnItem(ItemRegistry.FISH_BONES).build()
     );
 
@@ -381,12 +387,21 @@ public class ItemRegistry {
             true));
 
 
+    //--------------------------------------------------
     public static Item registerItem(String path, Item item) {
         Registry.register(Registries.ITEM, new Identifier(Fishing101Initializer.MOD_ID, path), item);
         PolymerTextures.requestModel(new Identifier(Fishing101Initializer.MOD_ID, "item/" + path), item);
+        fishingItems.add(item);
         return item;
     }
 
     public static void register() {
+        ItemGroup group = FabricItemGroup.builder()
+                .displayName(Text.literal("Fishing 101")) //TODO add translation
+                .icon(RED_KOI::getDefaultStack)
+                .entries((context, entries) -> fishingItems.forEach(entries::add))
+                .build();
+
+        PolymerItemGroupUtils.registerPolymerItemGroup(new Identifier(Fishing101Initializer.MOD_ID), group);
     }
 }

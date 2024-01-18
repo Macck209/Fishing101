@@ -4,13 +4,7 @@ import eu.pb4.polymer.core.api.item.PolymerItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.Nullable;
@@ -55,25 +49,4 @@ public class AutoPolymerSwordItem extends SwordItem implements PolymerItem {
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return false;
     }
-
-    /*
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        if (!super.isEnchantable(stack)) {
-            return false;
-        }
-        if (crabClawEnchantments) {
-            System.out.println("crabClawEnchantments: " + hasCrabEnchantments(stack));
-
-            return !hasCrabEnchantments(stack);
-        }
-        return true;
-    }
-
-    private boolean hasCrabEnchantments(ItemStack stack) {
-        var enchantments = EnchantmentHelper.get(stack);
-        return enchantments.containsKey(Enchantments.UNBREAKING) || enchantments.containsKey(Enchantments.MENDING) ||
-                enchantments.containsKey(Enchantments.FIRE_ASPECT) || enchantments.containsKey(Enchantments.SWEEPING);
-    }
-    */
 }
