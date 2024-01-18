@@ -32,17 +32,19 @@ public class AutoFishItem extends FishItem {
     private final TextColor color;
     private final Boolean isChorus;
     private final Boolean isCharged;
+    private final Boolean isChilly;
     private final Item returnItem;
 
     public AutoFishItem(Settings settings, Item polymerItem, TextColor color) {
-        this(settings, polymerItem, color, false, false, Items.EGG);
+        this(settings, polymerItem, color, false, false, false, Items.EGG);
     }
 
-    public AutoFishItem(Settings settings, Item polymerItem,TextColor color, Boolean isChorus, Boolean isCharged, Item returnItem) {
+    public AutoFishItem(Settings settings, Item polymerItem,TextColor color, Boolean isChorus, Boolean isCharged, Boolean isChilly, Item returnItem) {
         super(settings, polymerItem);
         this.color = color;
         this.isChorus = isChorus;
         this.isCharged = isCharged;
+        this.isChilly = isChilly;
         this.returnItem = returnItem;
     }
 
@@ -51,6 +53,7 @@ public class AutoFishItem extends FishItem {
         this.color = builder.color;
         this.isChorus = builder.isChorus;
         this.isCharged = builder.isCharged;
+        this.isChilly = builder.isChilly;
         this.returnItem = builder.returnItem;
     }
 
@@ -60,6 +63,7 @@ public class AutoFishItem extends FishItem {
         private TextColor color;
         private Boolean isChorus = false;
         private Boolean isCharged = false;
+        private Boolean isChilly = false;
         private Item returnItem = Items.EGG;
 
         public Builder(Settings settings, Item polymerItem, TextColor color) {
@@ -75,6 +79,11 @@ public class AutoFishItem extends FishItem {
 
         public Builder isCharged() {
             this.isCharged = true;
+            return this;
+        }
+
+        public Builder isChilly() {
+            this.isChilly = true;
             return this;
         }
 
@@ -144,11 +153,9 @@ public class AutoFishItem extends FishItem {
                 world.playSound(d, e, f, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 2.0F, 0.7F, false);
             }
 
-            //TODO re-implement this
-            /*
-            if(name.equals("Ice Cod")){
+            if(isChilly){
                 user.setFrozenTicks(200);
-            }*/
+            }
 
             if(returnItem!=Items.EGG){
                 user.dropItem(returnItem, 0);

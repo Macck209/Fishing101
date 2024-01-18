@@ -2,19 +2,24 @@
 Adds tons of new aquatic life forms to the game (items, not entities).
 Server-side mod + resource pack `/polymer generate-packs`.
 
+<figure>
+    <img src="images/showcase_big.png" alt="Image Description">
+    <figcaption style="text-align: center;">All mod items</figcaption>
+</figure>
+
 <details>
     <summary style="cursor: pointer;font-weight: bold;">
         Main features
     </summary>
 
-- 54 items
-- Time-of-day-specific fishes (also: biome-specific, weather-specific, height-specific)
+- 58 items
+- Time-of-day-specific fish (and biome-specific, weather-specific, height-specific, etc.)
 - Different fish types have different rarities and food stats
-- Most fish can __only__ be smoked (yay - new usage for smokers!)
+- Every marine creature can be cooked (except some special fish)
 - New food & ingredients
-- 2 books found in villages & from _Hero of the village_ gifts
+- 2 guide books found in villages & from _Hero of the village_ gifts
 
-To learn about the mod read the books: _Fisherman's Journal_ and _Johnny's Cook Book_.
+To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnny's Cook Book_.
 </details>
 
 ##### 
@@ -23,14 +28,20 @@ To learn about the mod read the books: _Fisherman's Journal_ and _Johnny's Cook 
         Spoiler images
     </summary>
 
-""Ascension"" after eating a Divine Catfish
-<img src="images/catfish_eating.png" alt="Image Description">
+<figure>
+    <img src="images/catfish_eating.png" alt="Image Description">
+    <figcaption style="text-align: center;">"Ascension effect" after eating a Divine Catfish</figcaption>
+</figure>
 
-Tentacles
-<img src="images/tentacle_drop.png" alt="Image Description">
+<figure>
+    <img src="images/tentacle_drop.png" alt="Image Description">
+    <figcaption style="text-align: center;">Tentacle item</figcaption>
+</figure>
 
-Charging Thunderfin
+<figure>
 <img src="images/charged_thunderfin_crafting.png" alt="Image Description">
+    <figcaption style="text-align: center;">Charged Thunderfin</figcaption>
+</figure>
 </details>
 
 ##### 
@@ -39,11 +50,11 @@ Charging Thunderfin
         Latest changes
     </summary>
 
-- 4 new fish types
-- changed 5 textures
-- crab claw!
+- Polish translation
+- item group (+ creative inventory tab) on client-side of the mod
+- minor balance changes
 
-Plans for next update: fix lang files, Polish translation, add Crab Claw rework.
+Plans for the future: Crab Claw rework, more translations and more.
 </details>
 
 ##### 

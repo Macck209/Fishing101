@@ -167,7 +167,7 @@ public class ItemRegistry {
     ));
     public static final Item ICE_COD = registerItem("ice_cod", new AutoFishItem.Builder(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1F).build()), Items.TROPICAL_FISH,
-            FishItem.ORDINARY).returnItem(ItemRegistry.FISH_BONES).build()
+            FishItem.ORDINARY).returnItem(ItemRegistry.FISH_BONES).isChilly().build()
     );
     public static final Item SOLARFISH = registerItem("solarfish", new AutoFishItem.Builder(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F)
@@ -351,9 +351,7 @@ public class ItemRegistry {
             1,
             -1,
             new Item.Settings().maxCount(1).maxDamage(Integer.MAX_VALUE),
-            "Crab Claw",
-            SUITABLE_CRAB_CLAW_BLOCKS,
-            true));
+            SUITABLE_CRAB_CLAW_BLOCKS));
 
 
     //--------------------------------------------------

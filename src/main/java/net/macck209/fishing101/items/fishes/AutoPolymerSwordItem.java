@@ -12,15 +12,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class AutoPolymerSwordItem extends SwordItem implements PolymerItem {
-    private final String name;
     private final List<Block> suitableMiningBlocks;
-    private final boolean crabClawEnchantments;
 
-    public AutoPolymerSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, String name, List<Block> suitableMiningBlocks, boolean crabClawEnchantments) {
+    public AutoPolymerSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, List<Block> suitableMiningBlocks) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
-        this.name = name;
         this.suitableMiningBlocks = suitableMiningBlocks;
-        this.crabClawEnchantments = crabClawEnchantments;
     }
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player)
