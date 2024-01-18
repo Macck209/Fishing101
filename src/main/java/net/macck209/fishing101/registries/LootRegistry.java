@@ -107,7 +107,7 @@ public class LootRegistry {
 
                     .with(ItemEntry.builder(ItemRegistry.MANGROVE_JACK)
                             .conditionally(NEEDS_MANGROVE)
-                            .weight((2000)))
+                            .weight((2500)))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_SHRIMP)
                             .conditionally(NEEDS_OCEAN_BIOME)

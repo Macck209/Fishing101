@@ -14,17 +14,18 @@ import net.minecraft.util.Identifier;
 
 public class LootModifier {
     private static final Identifier GRASS_BLOCK_ID
-            = new Identifier("assets/minecraft", "blocks/grass");
+            = new Identifier("minecraft", "blocks/grass");
     private static final Identifier SQUID_ID
-            = new Identifier("assets/minecraft", "entities/squid");
+            = new Identifier("minecraft", "entities/squid");
     private static final Identifier GLOW_SQUID_ID
-            = new Identifier("assets/minecraft", "entities/glow_squid");
+            = new Identifier("minecraft", "entities/glow_squid");
     private static final Identifier VILLAGE_FISHER_ID
-            = new Identifier("assets/minecraft", "chests/village/village_fisher");
+            = new Identifier("minecraft", "chests/village/village_fisher");
     private static final Identifier HERO_FISHER_ID
-            = new Identifier("assets/minecraft", "gameplay/hero_of_the_village/fisherman_gift");
+            = new Identifier("minecraft", "gameplay/hero_of_the_village/fisherman_gift");
     private static final Identifier HERO_FARMER_ID
-            = new Identifier("assets/minecraft", "gameplay/hero_of_the_village/farmer_gift");
+            = new Identifier("minecraft", "gameplay/hero_of_the_village/farmer_gift");
+
 
     public static void modifyLootTables(){
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
