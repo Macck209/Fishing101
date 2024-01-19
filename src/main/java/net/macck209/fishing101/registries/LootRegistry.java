@@ -156,6 +156,8 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.SOLARFISH)
                             .conditionally(ABOVE_Y90)
                             .conditionally(NEEDS_NIGHT.invert())
+                            .conditionally(IS_RAINING.invert())
+                            .conditionally(IS_STORMY.invert())
                             .weight((1000)))
 
                     .with(ItemEntry.builder(ItemRegistry.WITCHFISH)
