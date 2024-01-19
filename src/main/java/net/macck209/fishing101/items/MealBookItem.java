@@ -35,7 +35,7 @@ public class MealBookItem extends Item implements PolymerItem {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable("Johnny's Cook Book");
+        return Text.translatable("item.fishing101.meal_book");
     }
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
@@ -74,106 +74,119 @@ public class MealBookItem extends Item implements PolymerItem {
         FishGui.BOOKS.clear();
 
         builder.addPage(
-                //Text.translatable("books.fishing101.meal_book.intro") <- todo in future
-                Text.literal("  Introduction\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal( "Welcome to my culinary odyssey! " +
-                        "Join me in unraveling the secrets of exquisite flavors as we delve into the art of cooking. " +
-                        "Let's create delicious masterpieces together. " +
-                        "Bon appétit!")
+                Text.translatable("books.fishing101.meal_book.intro.title").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.intro.text")
         );
         builder.addPage(
-                Text.literal("Bone Meal\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "Made from Fish Bones")
+                Text.translatable("item.minecraft.bone_meal").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.bone_meal.text")
         );
         builder.addPage(
-                Text.literal("Slimeball\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "- Thick Goo\n" +
-                        "- Green Dye")
+                Text.translatable("item.minecraft.slime_ball").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.thick_goo")),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.green_dye"))
         );
         builder.addPage(
-                Text.literal("Dough\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "- Wheat\n"+
-                        "- Egg")
+                Text.translatable("item.fishing101.dough").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.wheat")),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.egg"))
         );
         builder.addPage(
-                Text.literal("Noodles\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("Cook a Dough in a Furnace")
+                Text.translatable("item.fishing101.noodles").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.noodles.text")
         );
         builder.addPage(
-                Text.literal("Rice\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Obtaining\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "Found among Grass in Cherry Groves")
+                Text.translatable("item.fishing101.rice").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.obtaining").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.rice.text")
         );
         builder.addPage(
-                Text.literal("Tentacle\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Obtaining\n").formatted(Formatting.UNDERLINE),
-                Text.literal("Chop 'em, those Squids!")
+                Text.translatable("item.fishing101.tentacle").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.obtaining").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.tentacle.text")
         );
         builder.addPage(
-                Text.literal("Cooked Tentacle\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("Cook a Tentacle in a Furnace")
+                Text.translatable("item.fishing101.cooked_tentacle").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.cooked_tentacle.text")
         );
         builder.addPage(
-                Text.literal("Chicken Broth\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "- Bowl\n" +
-                        "- Noodles\n"+
-                        "- Raw Chicken")
+                Text.translatable("item.fishing101.chicken_broth").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.bowl")),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.noodles")),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.chicken"))
         );
         builder.addPage(
-                Text.literal("Purple Pasta\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "- Bowl\n" +
-                        "- Noodles\n"+
-                        "- Cooked Porkchop\n"+
-                        "- Chorus Fruit")
+                Text.translatable("item.fishing101.purple_pasta").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.bowl")),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.noodles")),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.cooked_porkchop")),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.chorus_fruit"))
         );
         builder.addPage(
-                Text.literal("Spaghetti Frutti di Mare\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "- Bowl\n" +
-                        "- Noodles\n"+
-                        "- Cooked Tentacle\n"+
-                        "- Any Smoked Shrimp")
+                Text.translatable("item.fishing101.spaghetti_frutti_di_mare").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.bowl")),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.noodles")),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.cooked_tentacle")),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.smoked_ordinary_shrimp"))
         );
         builder.addPage(
-                Text.literal("Starfish Shashlik\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("- Starfish\n"+
-                        "- Stick")
+                Text.translatable("item.fishing101.starfish_shashlik").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.stick")),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.starfish"))
         );
         builder.addPage(
-                Text.literal("End Starfish Shashlik\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("- End Starfish\n"+
-                        "- Stick")
+                Text.translatable("item.fishing101.end_starfish_shashlik").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.stick")),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.end_starfish"))
         );
         builder.addPage(
-                Text.literal("Sushi\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("- Rice\n" +
-                        "- Kelp\n"+
-                        "- Raw Salmon")
+                Text.translatable("item.fishing101.sushi").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.literal( "- ").append(Text.translatable("item.fishing101.rice")),
+                Text.literal( "- ").append(Text.translatable("block.minecraft.kelp")),
+                Text.literal( "- ").append(Text.translatable("item.minecraft.salmon"))
         );
         builder.addPage(
-                Text.literal("Thick Goo\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("Cook a Jellyfish or an End Jellyfish in a Furnace or a Campfire")
+                Text.translatable("item.fishing101.thick_goo").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.thick_goo.text")
         );
         builder.addPage(
-                Text.literal("Charged Thunderfin\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal("Charge a Thunderfin in a Smithing Table with 2 Copper Blocks")
+                Text.translatable("item.fishing101.charged_thunderfin").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.charged_thunderfin.text")
         );
         builder.addPage(
-                Text.literal("Crab Claw\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Obtaining\n").formatted(Formatting.UNDERLINE),
-                Text.literal("Treasure fishing loot collected near beaches")
+                Text.translatable("item.fishing101.crab_claw").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.translatable("books.fishing101.meal_book.obtaining").formatted(Formatting.UNDERLINE),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.crab_claw.text")
         );
 
         IndexGui.book = builder.asStack();

@@ -26,6 +26,7 @@ public class LootModifier {
     private static final Identifier HERO_FARMER_ID
             = new Identifier("minecraft", "gameplay/hero_of_the_village/farmer_gift");
 
+
     public static void modifyLootTables(){
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if(GRASS_BLOCK_ID.equals(id)) {

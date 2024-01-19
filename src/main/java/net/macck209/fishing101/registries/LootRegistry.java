@@ -107,7 +107,7 @@ public class LootRegistry {
 
                     .with(ItemEntry.builder(ItemRegistry.MANGROVE_JACK)
                             .conditionally(NEEDS_MANGROVE)
-                            .weight((2000)))
+                            .weight((2500)))
 
                     .with(ItemEntry.builder(ItemRegistry.ORDINARY_SHRIMP)
                             .conditionally(NEEDS_OCEAN_BIOME)
@@ -156,6 +156,8 @@ public class LootRegistry {
                     .with(ItemEntry.builder(ItemRegistry.SOLARFISH)
                             .conditionally(ABOVE_Y90)
                             .conditionally(NEEDS_NIGHT.invert())
+                            .conditionally(IS_RAINING.invert())
+                            .conditionally(IS_STORMY.invert())
                             .weight((1000)))
 
                     .with(ItemEntry.builder(ItemRegistry.WITCHFISH)

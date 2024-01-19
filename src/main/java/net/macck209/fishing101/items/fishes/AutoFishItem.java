@@ -29,47 +29,46 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 public class AutoFishItem extends FishItem {
-    private final String name;
     private final TextColor color;
     private final Boolean isChorus;
     private final Boolean isCharged;
+    private final Boolean isChilly;
     private final Item returnItem;
 
-    public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color) {
-        this(settings, polymerItem, name, color, false, false, Items.EGG);
+    public AutoFishItem(Settings settings, Item polymerItem, TextColor color) {
+        this(settings, polymerItem, color, false, false, false, Items.EGG);
     }
 
-    public AutoFishItem(Settings settings, Item polymerItem, String name, TextColor color, Boolean isChorus, Boolean isCharged, Item returnItem) {
+    public AutoFishItem(Settings settings, Item polymerItem,TextColor color, Boolean isChorus, Boolean isCharged, Boolean isChilly, Item returnItem) {
         super(settings, polymerItem);
-        this.name = name;
         this.color = color;
         this.isChorus = isChorus;
         this.isCharged = isCharged;
+        this.isChilly = isChilly;
         this.returnItem = returnItem;
     }
 
     private AutoFishItem(Builder builder) {
         super(builder.settings, builder.polymerItem);
-        this.name = builder.name;
         this.color = builder.color;
         this.isChorus = builder.isChorus;
         this.isCharged = builder.isCharged;
+        this.isChilly = builder.isChilly;
         this.returnItem = builder.returnItem;
     }
 
     public static class Builder {
         private Settings settings;
         private Item polymerItem;
-        private String name;
         private TextColor color;
         private Boolean isChorus = false;
         private Boolean isCharged = false;
+        private Boolean isChilly = false;
         private Item returnItem = Items.EGG;
 
-        public Builder(Settings settings, Item polymerItem, String name, TextColor color) {
+        public Builder(Settings settings, Item polymerItem, TextColor color) {
             this.settings = settings;
             this.polymerItem = polymerItem;
-            this.name = name;
             this.color = color;
         }
 
@@ -80,6 +79,11 @@ public class AutoFishItem extends FishItem {
 
         public Builder isCharged() {
             this.isCharged = true;
+            return this;
+        }
+
+        public Builder isChilly() {
+            this.isChilly = true;
             return this;
         }
 
@@ -98,7 +102,7 @@ public class AutoFishItem extends FishItem {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(name).setStyle(Style.EMPTY.withColor(color));
+        return Text.translatable(this.getTranslationKey()).setStyle(Style.EMPTY.withColor(color));
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
@@ -149,7 +153,7 @@ public class AutoFishItem extends FishItem {
                 world.playSound(d, e, f, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 2.0F, 0.7F, false);
             }
 
-            if(name.equals("Ice Cod")){
+            if(isChilly){
                 user.setFrozenTicks(200);
             }
 
