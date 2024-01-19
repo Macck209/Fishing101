@@ -35,7 +35,7 @@ public class MealBookItem extends Item implements PolymerItem {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable("Johnny's Cook Book");
+        return Text.translatable("item.fishing101.meal_book");
     }
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
@@ -74,17 +74,15 @@ public class MealBookItem extends Item implements PolymerItem {
         FishGui.BOOKS.clear();
 
         builder.addPage(
-                //Text.translatable("books.fishing101.meal_book.intro") <- todo in future
-                Text.literal("  Introduction\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal( "Welcome to my culinary odyssey! " +
-                        "Join me in unraveling the secrets of exquisite flavors as we delve into the art of cooking. " +
-                        "Let's create delicious masterpieces together. " +
-                        "Bon appétit!")
+                Text.translatable("books.fishing101.meal_book.intro.title").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.intro.text")
         );
         builder.addPage(
-                Text.literal("Bone Meal\n\n").formatted(Formatting.BOLD,Formatting.GOLD),
-                Text.literal("Recipe\n").formatted(Formatting.UNDERLINE),
-                Text.literal( "Made from Fish Bones")
+                Text.translatable("books.fishing101.meal_book.bone_meal.title").formatted(Formatting.BOLD,Formatting.GOLD),
+                Text.empty(),
+                Text.translatable("books.fishing101.meal_book.recipe").formatted(Formatting.UNDERLINE),
+                Text.translatable("books.fishing101.meal_book.bone_meal.text")
         );
         builder.addPage(
                 Text.literal("Slimeball\n\n").formatted(Formatting.BOLD,Formatting.GOLD),

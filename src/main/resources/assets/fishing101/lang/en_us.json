@@ -57,9 +57,16 @@
   "item.fishing101.pandafish": "Pandafish",
   "item.fishing101.smoked_pandafish": "Cooked Pandafish",
 
-  "item.fishing101.fish_book": "Fisherman's Journal",
-  "item.fishing101.meal_book": "Cook Book",
+  "item.fishing101.fish_book": "Ichthyologist's Journal",
+  "item.fishing101.meal_book": "Johnny's Cookbook",
   "item.fishing101.crab_claw": "Crab Claw",
 
-  "item.fishing101.group_title": "Fishing 101"
+  "item.fishing101.group_title": "Fishing 101",
+
+  "books.fishing101.meal_book.intro.title": "  Introduction",
+  "books.fishing101.meal_book.intro.text": "Welcome to my culinary odyssey! Join me in unraveling the secrets of exquisite flavors as we delve into the art of cooking. Let's create delicious masterpieces together. Bon appétit!",
+
+  "books.fishing101.meal_book.recipe": "Recipe",
+  "books.fishing101.meal_book.bone_meal.title": "Bone Meal",
+  "books.fishing101.meal_book.bone_meal.text": "Made from Fish Bones"
 }

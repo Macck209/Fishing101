@@ -35,7 +35,7 @@ public class FishBookItem extends Item implements PolymerItem {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable("Ichthyologist's Journal");
+        return Text.translatable("item.fishing101.fish_book");
     }
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {

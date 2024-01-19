@@ -17,14 +17,10 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class ItemRegistry {
@@ -53,9 +49,7 @@ public class ItemRegistry {
             Blocks.YELLOW_CONCRETE_POWDER
     );
 
-    private static final Set<Item> fishingItems = new HashSet<>();
-    //private static final Identifier GROUP_TITLE_TRANSLATION_KEY = new Identifier(Fishing101Initializer.MOD_ID, "fishing_101");
-
+    private static final List<Item> fishingItems = new ArrayList<>() {};
 
     //--------------------------------------------------
     // Raw fish
