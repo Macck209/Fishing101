@@ -87,7 +87,7 @@ public class ItemRegistry {
             .food(new FoodComponent.Builder().alwaysEdible().hunger(6).saturationModifier(1.5F)
                 .statusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 5 * 20), 1)
                 .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 5 * 20), 1)
-                .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 600 * 20,1), 1)
+                .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 600 * 20,0), 1)
                 .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 300 * 20,4), 1).build()), Items.TROPICAL_FISH,
             FishItem.DIVINE).returnItem(ItemRegistry.FISH_BONES).build()
     );
@@ -115,7 +115,7 @@ public class ItemRegistry {
     ));
     public static final Item JELLYFISH = registerItem("jellyfish", new AutoFishItem(new FabricItemSettings().maxCount(64)
             .food(new FoodComponent.Builder().hunger(1).saturationModifier(0.4F)
-                .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 150 * 20), 0.5F)
+                .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 150 * 20), 0.25F)
                 .statusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 150 * 20), 0.5F).build()), Items.TROPICAL_FISH,
             FishItem.JELLYFISH
     ));

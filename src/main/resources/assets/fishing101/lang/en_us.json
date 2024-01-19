@@ -63,10 +63,17 @@
 
   "item.fishing101.group_title": "Fishing 101",
 
-  "books.fishing101.meal_book.intro.title": "  Introduction",
+  "books.fishing101.meal_book.intro.title": "   Introduction",
   "books.fishing101.meal_book.intro.text": "Welcome to my culinary odyssey! Join me in unraveling the secrets of exquisite flavors as we delve into the art of cooking. Let's create delicious masterpieces together. Bon appétit!",
 
   "books.fishing101.meal_book.recipe": "Recipe",
-  "books.fishing101.meal_book.bone_meal.title": "Bone Meal",
-  "books.fishing101.meal_book.bone_meal.text": "Made from Fish Bones"
+  "books.fishing101.meal_book.obtaining": "Obtaining",
+  "books.fishing101.meal_book.bone_meal.text": "Made from Fish Bones",
+  "books.fishing101.meal_book.noodles.text": "Cook a Dough",
+  "books.fishing101.meal_book.rice.text": "Found among grass in Cherry Groves",
+  "books.fishing101.meal_book.tentacle.text": "Chop 'em, those Squids!",
+  "books.fishing101.meal_book.cooked_tentacle.text": "Cook a Tentacle",
+  "books.fishing101.meal_book.thick_goo.text": "Cook a Jellyfish or an End Jellyfish",
+  "books.fishing101.meal_book.charged_thunderfin.text": "Charge a Thunderfin in a Smithing Table with two Copper Blocks",
+  "books.fishing101.meal_book.crab_claw.text": "Treasure fishing loot collected near beaches"
 }

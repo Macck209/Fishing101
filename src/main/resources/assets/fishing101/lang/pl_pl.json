@@ -28,7 +28,7 @@
   "item.fishing101.charged_thunderfin": "Naładowany grzmotopłetw",
   "item.fishing101.chicken_broth": "Rosół",
   "item.fishing101.divine_jellyfish": "Boska meduza",
-  "item.fishing101.dough": "Masa pszeniczna",
+  "item.fishing101.dough": "Masa pszenna",
   "item.fishing101.end_jellyfish": "Meduza kresu",
   "item.fishing101.end_starfish": "Rozgwiazda kresu",
   "item.fishing101.end_starfish_shashlik": "Szaszłyk z rozgwiazdy kresu",
@@ -63,10 +63,17 @@
 
   "item.fishing101.group_title": "Rybołówstwo 101",
 
-  "books.fishing101.meal_book.intro.title": "  Wstęp",
+  "books.fishing101.meal_book.intro.title": "       Wstęp",
   "books.fishing101.meal_book.intro.text": "Witaj w mojej kulinarniej odysei! Dołącz do mnie w odkrywaniu tajemnic wykwintnych smaków, gdy zagłębimy się w sztukę gotowania. Stwórzmy razem pyszne arcydzieła. Bon appétit!",
 
   "books.fishing101.meal_book.recipe": "Przepis",
-  "books.fishing101.meal_book.bone_meal.title": "Mączka kostna",
-  "books.fishing101.meal_book.bone_meal.text": "Pozyskiwana z ości"
+  "books.fishing101.meal_book.obtaining": "Pozyskiwanie",
+  "books.fishing101.meal_book.bone_meal.text": "Pozyskiwana z ości",
+  "books.fishing101.meal_book.noodles.text": "Upiecz masę pszenną",
+  "books.fishing101.meal_book.rice.text": "Wydobywany z trawy w wiśniowych gajach",
+  "books.fishing101.meal_book.tentacle.text": "Siekaj te kalmary!",
+  "books.fishing101.meal_book.cooked_tentacle.text": "Upiecz mackę",
+  "books.fishing101.meal_book.thick_goo.text": "Upiecz meduzę lub meduzę kresu",
+  "books.fishing101.meal_book.charged_thunderfin.text": "Naładuj grzmotopłetwa w stole kowalskim dwoma blokami miedzi",
+  "books.fishing101.meal_book.crab_claw.text": "Łup z udanego połowu na plażach"
 }
