@@ -240,7 +240,7 @@ public class LootRegistry {
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.MEADOW)));
         NEEDS_BEACH = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.BEACH))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.SNOWY_BEACH)));
-        ABOVE_Y90 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.FloatRange.atLeast(90)));
+        ABOVE_Y90 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.DoubleRange.atLeast(90)));
         IS_RAINING = WeatherCheckLootCondition.create().raining(true).or(WeatherCheckLootCondition.create().thundering(true));
         IS_STORMY = WeatherCheckLootCondition.create().thundering(true);
         NEEDS_END = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().dimension(World.END));
@@ -253,8 +253,8 @@ public class LootRegistry {
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FROZEN_PEAKS)))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FROZEN_RIVER)))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_FROZEN_OCEAN)));
-        NEEDS_DARKNESS = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().light(LightPredicate.Builder.create().light(NumberRange.IntRange.atMost(0)).build()));
-        BELOW_Y0 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.FloatRange.atMost(0)));
+        NEEDS_DARKNESS = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().light(LightPredicate.Builder.create().light(NumberRange.IntRange.atMost(0))));
+        BELOW_Y0 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.DoubleRange.atMost(0)));
         NEEDS_DEEP_DARK = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_DARK));
         NEEDS_WARM_OCEAN_OR_BEACH = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.WARM_OCEAN))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.LUKEWARM_OCEAN)))
@@ -263,7 +263,7 @@ public class LootRegistry {
         NEEDS_MUSHROOM_FIELDS = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.MUSHROOM_FIELDS));
         NEEDS_FLOWER_FOREST = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FLOWER_FOREST));
         NEEDS_BAMBOO_JUNGLE = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.BAMBOO_JUNGLE));
-        ABOVE_Y128 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.FloatRange.atLeast(128)));
+        ABOVE_Y128 = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().y(NumberRange.DoubleRange.atLeast(128)));
         NEEDS_COLD_OCEAN = LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.FROZEN_OCEAN))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.DEEP_FROZEN_OCEAN)))
                 .or(LocationCheckLootCondition.builder(LocationPredicate.Builder.create().biome(BiomeKeys.COLD_OCEAN)))

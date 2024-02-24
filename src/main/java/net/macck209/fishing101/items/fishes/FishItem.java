@@ -1,6 +1,7 @@
 package net.macck209.fishing101.items.fishes;
 
 import eu.pb4.polymer.core.api.item.PolymerItem;
+import net.macck209.fishing101.Fishing101Initializer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -35,20 +36,25 @@ public class FishItem extends Item implements PolymerItem {
 
 
     static{
-        ORDINARY=TextColor.parse("#ffffff");
-        GRAY=TextColor.parse("#aaaaaa");
-        DEFORMED=TextColor.parse("#596c3d");
-        TROPICAL=TextColor.parse("#88c720");
-        MUDDY=TextColor.parse("#7f4721");
-        DIVINE=TextColor.parse("#ffe558");
-        LUMINOUS=TextColor.parse("#00cda0");
-        MANGROVE=TextColor.parse("#773731");
-        JELLYFISH=TextColor.parse("#00e3e0");
-        END=TextColor.parse("#e0e49e");
-        ANGLER=TextColor.parse("#1d3b6d");
-        SOLAR=TextColor.parse("#c0973c");
-        WITCH=TextColor.parse("#5e8a39");
-        FLOWER=TextColor.parse("#f8848d");
-        PANDA=TextColor.parse("#dbd7cf");
+        ORDINARY=getTextColor("#ffffff");
+        GRAY=getTextColor("#aaaaaa");
+        DEFORMED=getTextColor("#596c3d");
+        TROPICAL=getTextColor("#88c720");
+        MUDDY=getTextColor("#7f4721");
+        DIVINE=getTextColor("#ffe558");
+        LUMINOUS=getTextColor("#00cda0");
+        MANGROVE=getTextColor("#773731");
+        JELLYFISH=getTextColor("#00e3e0");
+        END=getTextColor("#e0e49e");
+        ANGLER=getTextColor("#1d3b6d");
+        SOLAR=getTextColor("#c0973c");
+        WITCH=getTextColor("#5e8a39");
+        FLOWER=getTextColor("#f8848d");
+        PANDA=getTextColor("#dbd7cf");
+    }
+
+    private static TextColor getTextColor(String name) {
+        return TextColor.parse(name).getOrThrow(false, message ->
+                Fishing101Initializer.LOGGER.error("Something went wrong when creating TextColor's for FishItem"));
     }
 }

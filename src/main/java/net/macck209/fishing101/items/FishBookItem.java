@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class FishBookItem extends Item implements PolymerItem {
 
-    public FishBookItem(Item.Settings settings) {
+    public FishBookItem(Settings settings) {
         super(settings);
     }
 
