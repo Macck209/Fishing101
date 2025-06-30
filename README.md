@@ -50,7 +50,7 @@ To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnn
         Latest changes
     </summary>
 
-- 1.21.4 experimental update
+- 1.21.7 experimental update
 - Polish translation
 
 Plans for the future: Crab Claw rework, more translations and more.

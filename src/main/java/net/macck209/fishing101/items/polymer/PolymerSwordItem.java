@@ -11,7 +11,7 @@ public class PolymerSwordItem extends Item implements PolymerAutoItem {
 
     public PolymerSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial
-                .applyToolSettings(settings, BlockTags.SHOVEL_MINEABLE, attackDamage, attackSpeed)
+                .applyToolSettings(settings, BlockTags.SHOVEL_MINEABLE, attackDamage, attackSpeed, 0)
                 .enchantable(1)
         );
     }
