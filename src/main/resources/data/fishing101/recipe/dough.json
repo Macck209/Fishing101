@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:egg",
+    "minecraft:wheat"
+  ],
+  "result": {
+    "id": "fishing101:dough",
+    "count": 1
+  }
+}

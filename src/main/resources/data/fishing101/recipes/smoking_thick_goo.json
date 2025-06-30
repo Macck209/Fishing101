@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "fishing101:jellyfish"
-  },
-  "result": "fishing101:thick_goo",
-  "experience": 0,
-  "cookingtime": 100
-}

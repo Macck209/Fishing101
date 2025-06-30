@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      "fishing101:noodles",
+      "minecraft:chicken",
+      "minecraft:bowl"
+    ]
+  ],
+  "result": {
+    "id": "fishing101:chicken_broth",
+    "count": 1
+  }
+}

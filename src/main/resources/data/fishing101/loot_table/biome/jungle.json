@@ -1,0 +1,115 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pufferfish",
+          "weight": 10,
+          "quality": -1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tropical_fish",
+          "weight": 15,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:solarfish",
+          "weight": 5,
+          "quality": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 0,
+                "max": 11999
+              },
+              "period": 24000
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:tropical_catfish",
+          "weight": 20,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:thunderfin",
+          "weight": 5,
+          "quality": 0,
+          "conditions": [
+            {
+              "condition": "minecraft:weather_check",
+              "thundering": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:divine_catfish",
+          "weight": 1,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:luminous_carp",
+          "weight": 10,
+          "quality": 0,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 12000,
+                "max": 23999
+              },
+              "period": 24000
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:deformed_carp",
+          "weight": 5,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:ordinary_carp",
+          "weight": 24,
+          "quality": -1
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:gameplay/fishing/treasure",
+          "weight": 5,
+          "quality": 2,
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "type_specific": {
+                  "type": "minecraft:fishing_hook",
+                  "in_open_water": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:gameplay/fishing/junk",
+          "weight": 10,
+          "quality": -2
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/fishing"
+}

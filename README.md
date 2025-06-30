@@ -50,9 +50,8 @@ To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnn
         Latest changes
     </summary>
 
+- 1.21.4 experimental update
 - Polish translation
-- item group (+ creative inventory tab) on client-side of the mod
-- minor balance changes
 
 Plans for the future: Crab Claw rework, more translations and more.
 </details>

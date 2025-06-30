@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": "fishing101:ice_cod",
+  "result": { "id": "minecraft:snowball" },
+  "experience": 0,
+  "cookingtime": 100
+}

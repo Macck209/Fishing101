@@ -1,0 +1,126 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:ordinary_shrimp",
+          "weight": 10,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:luminous_shrimp",
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 12000,
+                "max": 23999
+              },
+              "period": 24000
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:salmon",
+          "weight": 5,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cod",
+          "weight": 15,
+          "quality": -1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:jellyfish",
+          "weight": 15,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:divine_jellyfish",
+          "weight": 1,
+          "quality": 0,
+          "conditions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:ordinary_catfish",
+          "weight": 8,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:thunderfin",
+          "weight": 5,
+          "quality": 0,
+          "conditions": [
+            {
+              "condition": "minecraft:weather_check",
+              "thundering": true
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:divine_catfish",
+          "weight": 1,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:luminous_mackerel",
+          "weight": 10,
+          "quality": 0,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 12000,
+                "max": 23999
+              },
+              "period": 24000
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:ordinary_mackerel",
+          "weight": 20,
+          "quality": -1
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:gameplay/fishing/treasure",
+          "weight": 5,
+          "quality": 2,
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "type_specific": {
+                  "type": "minecraft:fishing_hook",
+                  "in_open_water": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:gameplay/fishing/junk",
+          "weight": 10,
+          "quality": -2
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/fishing"
+}

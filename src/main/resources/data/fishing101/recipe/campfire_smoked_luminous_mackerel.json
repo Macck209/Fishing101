@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "fishing101:luminous_mackerel",
+  "result": { "id": "fishing101:smoked_luminous_mackerel" },
+  "experience": 1,
+  "cookingtime": 600
+}

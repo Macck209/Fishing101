@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "fishing101:noodles",
+    "fishing101:cooked_tentacle",
+    "minecraft:bowl",
+    [
+      "fishing101:smoked_luminous_shrimp",
+      "fishing101:smoked_ordinary_shrimp"
+    ]
+  ],
+  "result": {
+    "id": "fishing101:spaghetti_frutti_di_mare",
+    "count": 1
+  }
+}

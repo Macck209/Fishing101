@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "ingredient": "fishing101:anglerfish",
+  "result": {
+    "id": "fishing101:smoked_anglerfish"
+  },
+  "experience": 0.8,
+  "cookingtime": 600
+}

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "fishing101:luminous_shrimp",
+  "result": { "id": "fishing101:smoked_luminous_shrimp" },
+  "experience": 0.8,
+  "cookingtime": 600
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "fishing101:ice_cod",
+  "result": {
+    "id": "minecraft:snowball"
+  },
+  "experience": 0,
+  "cookingtime": 600
+}

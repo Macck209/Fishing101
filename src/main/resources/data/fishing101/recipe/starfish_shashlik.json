@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "fishing101:starfish",
+    "minecraft:stick"
+  ],
+  "result": {
+    "id": "fishing101:starfish_shashlik",
+    "count": 1
+  }
+}

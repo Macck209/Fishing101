@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": [
+    "fishing101:ordinary_catfish",
+    "fishing101:muddy_catfish",
+    "fishing101:tropical_catfish"
+  ],
+  "result": { "id": "fishing101:smoked_catfish" },
+  "experience": 0.5,
+  "cookingtime": 600
+}

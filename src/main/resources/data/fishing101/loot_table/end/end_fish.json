@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:end_jellyfish",
+          "weight": 60
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:end_starfish",
+          "weight": 40
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:luminous_mackerel",
+          "weight": 40
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:divine_jellyfish",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/fishing"
+}

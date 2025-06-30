@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "minecraft:snowball",
+  "result": {
+    "id": "minecraft:ice"
+  },
+  "experience": 0,
+  "cookingtime": 200
+}

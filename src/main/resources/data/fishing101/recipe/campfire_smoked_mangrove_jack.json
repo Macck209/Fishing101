@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "fishing101:mangrove_jack",
+  "result": { "id": "fishing101:smoked_mangrove_jack" },
+  "experience": 1,
+  "cookingtime": 600
+}

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "fishing101:flowerfish",
+  "result": { "id": "fishing101:smoked_flowerfish" },
+  "experience": 0.5,
+  "cookingtime": 600
+}

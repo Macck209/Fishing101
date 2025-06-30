@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "fishing101:noodles",
+    "minecraft:cooked_porkchop",
+    "minecraft:bowl",
+    "minecraft:chorus_fruit"
+  ],
+  "result": {
+    "id": "fishing101:purple_pasta",
+    "count": 1
+  }
+}

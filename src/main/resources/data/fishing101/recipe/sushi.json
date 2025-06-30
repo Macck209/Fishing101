@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "fishing101:rice",
+    "minecraft:kelp",
+    "minecraft:salmon"
+  ],
+  "result": {
+    "id": "fishing101:sushi",
+    "count": 1
+  }
+}

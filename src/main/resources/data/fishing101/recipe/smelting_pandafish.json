@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "fishing101:pandafish",
+  "result": {
+    "id": "fishing101:smoked_pandafish"
+  },
+  "experience": 0.4,
+  "cookingtime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "fishing101:mangrove_jack",
+  "result": {
+    "id": "fishing101:smoked_mangrove_jack"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}
