@@ -18,7 +18,7 @@ public abstract class ItemMixin {
     @Shadow
     public abstract Item asItem();
 
-    @Inject(method = "finishUsing", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "finishUsing", at = @At("RETURN"), cancellable = true)
     private void modifyFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir) {
         if (this.asItem() == Items.COD || this.asItem() == Items.SALMON || this.asItem() == Items.TROPICAL_FISH || this.asItem() == Items.PUFFERFISH
                 || this.asItem() == Items.COOKED_COD || this.asItem() == Items.COOKED_SALMON) {
