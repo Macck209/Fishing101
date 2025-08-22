@@ -114,7 +114,7 @@ public class PolymerMealBookItem extends Item implements PolymerAutoItem {
                 Text.empty(),
                 Text.literal( "- ").append(Text.translatable("item.minecraft.bowl")),
                 Text.literal( "- ").append(Text.translatable("item.fishing101.noodles")),
-                Text.literal( "- ").append(Text.translatable("item.minecraft.chicken"))
+                Text.literal( "- ").append(Text.translatable("books.fishing101.meal_book.chickens.text"))
         );
         builder.addPage(
                 Text.translatable("item.fishing101.purple_pasta").formatted(Formatting.BOLD,Formatting.GOLD),

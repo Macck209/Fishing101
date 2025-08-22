@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "fishing101:eel",
+  "result": {
+    "id": "fishing101:smoked_eel"
+  },
+  "experience": 0.4,
+  "cookingtime": 200
+}

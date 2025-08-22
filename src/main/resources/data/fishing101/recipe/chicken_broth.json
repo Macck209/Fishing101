@@ -1,10 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
+    "minecraft:bowl",
+    "fishing101:noodles",
     [
-      "fishing101:noodles",
       "minecraft:chicken",
-      "minecraft:bowl"
+      "minecraft:cooked_chicken"
     ]
   ],
   "result": {
