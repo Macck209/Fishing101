@@ -2,10 +2,7 @@
 Adds tons of new aquatic life forms to the game (items, not entities).
 Server-side mod + resource pack `/polymer generate-packs`.
 
-<figure>
-    <img src="images/showcase_big.png" alt="Image Description">
-    <figcaption style="text-align: center;">All mod items</figcaption>
-</figure>
+![All mod items](https://cdn.modrinth.com/data/EbEalvSA/images/f50b02dbd66d0ca37887c83749b2f31090611249.png)
 
 <details>
     <summary style="cursor: pointer;font-weight: bold;">
