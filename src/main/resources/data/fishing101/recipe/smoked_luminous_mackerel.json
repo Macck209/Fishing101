@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:smoking",
   "ingredient": "fishing101:luminous_mackerel",
   "result": {
     "id": "fishing101:smoked_luminous_mackerel"
   },
   "experience": 0.3,
-  "cookingtime": 200
+  "cookingtime": 100
 }

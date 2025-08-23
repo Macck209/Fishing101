@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:smoking",
   "ingredient": "fishing101:ordinary_carp",
   "result": {
     "id": "fishing101:smoked_ordinary_carp"
   },
   "experience": 0.2,
-  "cookingtime": 200
+  "cookingtime": 100
 }

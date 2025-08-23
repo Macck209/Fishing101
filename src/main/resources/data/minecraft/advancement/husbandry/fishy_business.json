@@ -1,16 +1,21 @@
 {
   "display": {
     "icon": {
-      "id": "minecraft:tropical_fish"
+      "id": "minecraft:fishing_rod",
+      "nbt": "{Damage:0}"
     },
-    "title": "Old Man and the Fish",
-    "description": "Discover all the new fish types",
-    "frame": "challenge",
+    "title": {
+      "translate": "advancements.husbandry.fishy_business.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.fishy_business.description"
+    },
+    "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "minecraft:husbandry/fishy_business",
+  "parent": "minecraft:husbandry/root",
   "criteria": {
     "cod": {
       "trigger": "minecraft:fishing_rod_hooked",
@@ -168,8 +173,7 @@
         "item": {
           "items": [
             "fishing101:luminous_mackerel"
-          ],
-          "count": 1
+          ]
         }
       }
     },
@@ -326,101 +330,38 @@
   },
   "requirements": [
     [
-      "cod"
-    ],
-    [
-      "ordinary_catfish"
-    ],
-    [
-      "thunderfin"
-    ],
-    [
-      "yellow_koi"
-    ],
-    [
-      "red_koi"
-    ],
-    [
-      "tropical_catfish"
-    ],
-    [
-      "muddy_catfish"
-    ],
-    [
-      "luminous_shrimp"
-    ],
-    [
-      "ordinary_shrimp"
-    ],
-    [
-      "mangrove_jack"
-    ],
-    [
-      "ordinary_mackerel"
-    ],
-    [
-      "luminous_mackerel"
-    ],
-    [
-      "ice_cod"
-    ],
-    [
-      "end_starfish"
-    ],
-    [
-      "starfish"
-    ],
-    [
-      "jellyfish"
-    ],
-    [
-      "end_jellyfish"
-    ],
-    [
-      "divine_jellyfish"
-    ],
-    [
-      "divine_catfish"
-    ],
-    [
-      "luminous_carp"
-    ],
-    [
-      "deformed_carp"
-    ],
-    [
-      "ordinary_carp"
-    ],
-    [
-      "anglerfish"
-    ],
-    [
-      "salmon"
-    ],
-    [
-      "pufferfish"
-    ],
-    [
-      "tropical_fish"
-    ],
-    [
-      "witchfish"
-    ],
-    [
-      "flowerfish"
-    ],
-    [
-      "pandafish"
-    ],
-    [
-      "solarfish"
-    ],
-    [
+      "cod",
+      "tropical_fish",
+      "pufferfish",
+      "salmon",
+      "anglerfish",
+      "ordinary_carp",
+      "deformed_carp",
+      "luminous_carp",
+      "divine_catfish",
+      "divine_jellyfish",
+      "end_jellyfish",
+      "jellyfish",
+      "starfish",
+      "end_starfish",
+      "ice_cod",
+      "luminous_mackerel",
+      "ordinary_mackerel",
+      "mangrove_jack",
+      "ordinary_shrimp",
+      "luminous_shrimp",
+      "muddy_catfish",
+      "tropical_catfish",
+      "red_koi",
+      "yellow_koi",
+      "thunderfin",
+      "ordinary_catfish",
+      "witchfish",
+      "flowerfish",
+      "pandafish",
+      "solarfish",
       "eel"
     ]
   ],
-  "rewards": {
-    "experience": 100
-  },
   "sends_telemetry_event": true
 }

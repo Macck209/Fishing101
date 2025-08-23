@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:smoking",
   "ingredient": "fishing101:luminous_shrimp",
   "result": {
     "id": "fishing101:smoked_luminous_shrimp"
   },
   "experience": 0.2,
-  "cookingtime": 200
+  "cookingtime": 100
 }

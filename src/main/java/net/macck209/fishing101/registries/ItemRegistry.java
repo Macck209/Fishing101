@@ -8,10 +8,8 @@ import net.macck209.fishing101.items.polymer.PolymerFishItem;
 import net.macck209.fishing101.items.polymer.PolymerSwordItem;
 import net.macck209.fishing101.items.polymer.SimplePolymerItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -537,6 +535,31 @@ public class ItemRegistry {
                                     ))).build()
                     ),
                     Items.TROPICAL_FISH, SimplePolymerItem.PANDA
+            ).returnItem(ItemRegistry.FISH_BONES).build()
+    );
+    public static final Item EEL = registerItem(
+            "eel",
+            (s) -> new PolymerFishItem.Builder(
+                    s.maxCount(64)
+                            .food(
+                                    new FoodComponent.Builder().nutrition(3).saturationModifier(0.1F).build(),
+                                    ConsumableComponent.builder().consumeEffect(new ApplyEffectsConsumeEffect(List.of(
+                                            new StatusEffectInstance(StatusEffects.NAUSEA, 15 * 20,0),
+                                            new StatusEffectInstance(StatusEffects.POISON, 30 * 20,1),
+                                            new StatusEffectInstance(StatusEffects.HUNGER, 15 * 20,2)
+                                    ))).build()
+                            ),
+                    Items.TROPICAL_FISH, SimplePolymerItem.DEFORMED
+            ).returnItem(ItemRegistry.FISH_BONES).build()
+    );
+    public static final Item SMOKED_EEL = registerItem(
+            "smoked_eel",
+            (s) -> new PolymerFishItem.Builder(
+                    s.maxCount(64)
+                            .food(
+                                    new FoodComponent.Builder().nutrition(3).saturationModifier(0.6F).build()
+                            ),
+                    Items.TROPICAL_FISH, SimplePolymerItem.ORDINARY
             ).returnItem(ItemRegistry.FISH_BONES).build()
     );
 
