@@ -2,24 +2,21 @@
 Adds tons of new aquatic life forms to the game (items, not entities).
 Server-side mod + resource pack `/polymer generate-packs`.
 
-<figure>
-    <img src="images/showcase_big.png" alt="Image Description">
-    <figcaption style="text-align: center;">All mod items</figcaption>
-</figure>
+![All mod items](https://cdn.modrinth.com/data/EbEalvSA/images/f50b02dbd66d0ca37887c83749b2f31090611249.png)
 
 <details>
     <summary style="cursor: pointer;font-weight: bold;">
         Main features
     </summary>
 
-- 58 items
-- Time-of-day-specific fish (and biome-specific, weather-specific, height-specific, etc.)
-- Different fish types have different rarities and food stats
-- Every marine creature can be cooked (except some special fish)
+- 60 items (27 new fish types)
+- Time-of-day-specific fish (and biome-specific, weather-specific, etc.)
+- Different fish types have different rarities and food stats (and effects)
+- Every marine creature can be cooked ([with a few exceptions](https://github.com/Macck209/Fishing101/wiki/Crafting-recipes))
 - New food & ingredients
-- 2 guide books found in villages & from _Hero of the village_ gifts
+- 2 guide books obtained from _Hero of the village_ gifts
 
-To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnny's Cook Book_.
+To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnny's Cook Book_ or see [the wiki](https://github.com/Macck209/Fishing101/wiki).
 </details>
 
 ##### 
@@ -50,10 +47,15 @@ To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnn
         Latest changes
     </summary>
 
-- 1.21.7 experimental update
-- Polish translation
+- New item animations
+- New "fish": Eel
+- Fixed fishy business advancement appearing duplicated
+- Fixed smoker not working with new fish
+- You can now smelt Divine Jellyfish into Thick Goo (why would you tho)
+- Chicken Broth can be crafted with both Raw and Cooked Chicken
+- Finally fixed the _Fisherman's Journal_. Still not that helpful, but the info is at least accurate
 
-Plans for the future: Crab Claw rework, more translations and more.
+Plans for the future: Who knows? Tell me what would you like to see [here](https://github.com/Macck209/Fishing101/issues)!
 </details>
 
 ##### 
