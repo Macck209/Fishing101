@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "ingredient": "fishing101:divine_jellyfish",
+  "result": {
+    "id": "fishing101:thick_goo"
+  },
+  "experience": 0,
+  "cookingtime": 600
+}

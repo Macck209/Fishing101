@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:smoking",
   "ingredient": "fishing101:anglerfish",
   "result": {
     "id": "fishing101:smoked_anglerfish"
   },
   "experience": 0.8,
-  "cookingtime": 200
+  "cookingtime": 100
 }

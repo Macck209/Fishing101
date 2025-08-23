@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:smoking",
   "ingredient": "fishing101:solarfish",
   "result": {
     "id": "fishing101:smoked_solarfish"
   },
   "experience": 0.5,
-  "cookingtime": 200
+  "cookingtime": 100
 }

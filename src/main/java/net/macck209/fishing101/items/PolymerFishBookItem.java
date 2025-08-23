@@ -1,6 +1,5 @@
 package net.macck209.fishing101.items;
 
-import eu.pb4.polymer.core.api.item.PolymerItem;
 import eu.pb4.sgui.api.elements.BookElementBuilder;
 import eu.pb4.sgui.api.gui.BookGui;
 import net.macck209.fishing101.items.polymer.PolymerAutoItem;
@@ -70,7 +69,6 @@ public class PolymerFishBookItem extends Item implements PolymerAutoItem {
                 Text.translatable("books.fishing101.fish_book.order.cypriniformes"),
                 Text.translatable("books.fishing101.fish_book.distribution")
                         .append(Text.translatable("books.fishing101.fish_book.distribution.freshwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.nocturnal"))
         );
         builder.addPage(
                 Text.translatable("books.fishing101.fish_book.date.carp"),
@@ -97,7 +95,7 @@ public class PolymerFishBookItem extends Item implements PolymerAutoItem {
                 Text.translatable("books.fishing101.ordinary_catfish").formatted(Formatting.BOLD),
                 Text.translatable("books.fishing101.fish_book.order.siluriformes"),
                 Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.freshwater"))
+                        .append(Text.translatable("books.fishing101.fish_book.distribution.every_water"))
         );
         builder.addPage(
                 Text.translatable("books.fishing101.fish_book.date.muddy_catfish"),
@@ -121,8 +119,7 @@ public class PolymerFishBookItem extends Item implements PolymerAutoItem {
                 Text.translatable("item.fishing101.divine_catfish").formatted(Formatting.BOLD),
                 Text.translatable("books.fishing101.fish_book.order.siluriformes"),
                 Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.freshwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.rain")),
+                        .append(Text.translatable("books.fishing101.fish_book.distribution.every_water")),
                 Text.translatable("books.fishing101.fish_book.special")
                         .append(Text.translatable("books.fishing101.fish_book.special.ascension"))
         );
@@ -190,8 +187,7 @@ public class PolymerFishBookItem extends Item implements PolymerAutoItem {
                 Text.translatable("item.fishing101.divine_jellyfish").formatted(Formatting.BOLD),
                 Text.translatable("books.fishing101.fish_book.order.semaeostomeae"),
                 Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.rain")),
+                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater")),
                 Text.translatable("books.fishing101.fish_book.special")
                         .append(Text.translatable("books.fishing101.fish_book.special.ascension"))
         );
@@ -204,6 +200,16 @@ public class PolymerFishBookItem extends Item implements PolymerAutoItem {
                         .append(Text.translatable("books.fishing101.fish_book.distribution.darkness")),
                 Text.translatable("books.fishing101.fish_book.special")
                         .append(Text.translatable("books.fishing101.fish_book.special.nausea"))
+        );
+        builder.addPage(
+                Text.translatable("books.fishing101.fish_book.date.anglerfish"),
+                Text.empty(),
+                Text.translatable("books.fishing101.eel").formatted(Formatting.BOLD),
+                Text.translatable("books.fishing101.fish_book.order.anguilliformes"),
+                Text.translatable("books.fishing101.fish_book.distribution")
+                        .append(Text.translatable("books.fishing101.fish_book.distribution.darkness_and_pale_garden")),
+                Text.translatable("books.fishing101.fish_book.special")
+                        .append(Text.translatable("books.fishing101.fish_book.special.allergy"))
         );
         builder.addPage(
                 Text.translatable("books.fishing101.fish_book.date.koi"),
@@ -238,7 +244,8 @@ public class PolymerFishBookItem extends Item implements PolymerAutoItem {
                 Text.translatable("books.fishing101.fish_book.order.paxillosida"),
                 Text.translatable("books.fishing101.fish_book.distribution")
                         .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.beach")),
+                        .append(Text.translatable("books.fishing101.fish_book.distribution.beach"))
+                        .append(Text.translatable("books.fishing101.fish_book.distribution.thermophilic")),
                 Text.translatable("books.fishing101.fish_book.special")
                         .append(Text.translatable("books.fishing101.fish_book.special.shashlik"))
         );

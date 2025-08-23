@@ -316,6 +316,16 @@
           ]
         }
       }
+    },
+    "eel": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:eel"
+          ]
+        }
+      }
     }
   },
   "requirements": [
@@ -349,7 +359,8 @@
       "witchfish",
       "flowerfish",
       "pandafish",
-      "solarfish"
+      "solarfish",
+      "eel"
     ]
   ],
   "sends_telemetry_event": true

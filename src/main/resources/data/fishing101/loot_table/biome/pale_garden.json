@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "fishing101:anglerfish",
+          "name": "fishing101:fish_bones",
           "weight": 25,
           "quality": 0
         },

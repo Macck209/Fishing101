@@ -312,6 +312,16 @@
           ]
         }
       }
+    },
+    "eel": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "fishing101:eel"
+          ]
+        }
+      }
     }
   },
   "requirements": [
@@ -404,6 +414,9 @@
     ],
     [
       "solarfish"
+    ],
+    [
+      "eel"
     ]
   ],
   "rewards": {
