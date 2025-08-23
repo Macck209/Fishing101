@@ -536,7 +536,7 @@ public class ItemRegistry {
                                             new StatusEffectInstance(StatusEffects.JUMP_BOOST, 150 * 20,2)
                                     ))).build()
                     ),
-                    Items.TROPICAL_FISH, SimplePolymerItem.DEFORMED
+                    Items.TROPICAL_FISH, SimplePolymerItem.PANDA
             ).returnItem(ItemRegistry.FISH_BONES).build()
     );
     public static final Item EEL = registerItem(
@@ -551,7 +551,7 @@ public class ItemRegistry {
                                             new StatusEffectInstance(StatusEffects.HUNGER, 15 * 20,2)
                                     ))).build()
                             ),
-                    Items.TROPICAL_FISH, SimplePolymerItem.PANDA
+                    Items.TROPICAL_FISH, SimplePolymerItem.DEFORMED
             ).returnItem(ItemRegistry.FISH_BONES).build()
     );
     public static final Item SMOKED_EEL = registerItem(
@@ -561,7 +561,7 @@ public class ItemRegistry {
                             .food(
                                     new FoodComponent.Builder().nutrition(3).saturationModifier(0.6F).build()
                             ),
-                    Items.TROPICAL_FISH, SimplePolymerItem.DEFORMED
+                    Items.TROPICAL_FISH, SimplePolymerItem.ORDINARY
             ).returnItem(ItemRegistry.FISH_BONES).build()
     );
 
