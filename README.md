@@ -2,19 +2,20 @@
 Adds tons of new aquatic life forms to the game (items, not entities).
 Server-side mod + resource pack `/polymer generate-packs`.
 
-![All mod items](https://cdn.modrinth.com/data/EbEalvSA/images/f50b02dbd66d0ca37887c83749b2f31090611249.png)
+![All mod items](https://cdn.modrinth.com/data/EbEalvSA/images/177fe4269307fa48d6516fc7385cf8512368bff1.png)
 
 <details>
     <summary style="cursor: pointer;font-weight: bold;">
         Main features
     </summary>
 
-- 60 items (27 new fish types)
+- 62 items (27 new fish types)
 - Time-of-day-specific fish (and biome-specific, weather-specific, etc.)
 - Different fish types have different rarities and food stats (and effects)
 - Every marine creature can be cooked ([with a few exceptions](https://github.com/Macck209/Fishing101/wiki/Crafting-recipes))
 - New food & ingredients
 - 2 guide books obtained from _Hero of the village_ gifts
+- 2 new armor trims
 
 To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnny's Cook Book_ or see [the wiki](https://github.com/Macck209/Fishing101/wiki).
 </details>
@@ -47,13 +48,13 @@ To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnn
         Latest changes
     </summary>
 
-- New item animations
-- New "fish": Eel
-- Fixed fishy business advancement appearing duplicated
-- Fixed smoker not working with new fish
-- You can now smelt Divine Jellyfish into Thick Goo (why would you tho)
-- Chicken Broth can be crafted with both Raw and Cooked Chicken
-- Finally fixed the _Fisherman's Journal_. Still not that helpful, but the info is at least accurate
+- 2 new items: Crab Wrench and Jelly Boots
+- 2 new trim patterns: Tentacles and Seaweed (get them by trimming with Divine Jellyfish or Divine Catfish)
+- Dough can be crafted from any chicken or turtle egg type
+- Added some recipe unlocks for some of the items
+- Added translations to advancements
+- Re-added subtitle to books
+- Other minor tweaks
 
 Plans for the future: Who knows? Tell me what would you like to see [here](https://github.com/Macck209/Fishing101/issues)!
 </details>
