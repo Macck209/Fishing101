@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dough": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fishing101:dough"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_dough"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fishing101:noodles"
+    ]
+  },
+  "sends_telemetry_event": true
+}

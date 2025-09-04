@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_thunderfin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fishing101:thunderfin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_thunderfin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fishing101:charged_thunderfin"
+    ]
+  },
+  "sends_telemetry_event": true
+}

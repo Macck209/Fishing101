@@ -1,11 +1,16 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "minecraft:egg",
+    [
+      "minecraft:egg",
+      "minecraft:brown_egg",
+      "minecraft:blue_egg",
+      "minecraft:turtle_egg"
+    ],
     "minecraft:wheat"
   ],
   "result": {
     "id": "fishing101:dough",
-    "count": 1
+    "count": 2
   }
 }

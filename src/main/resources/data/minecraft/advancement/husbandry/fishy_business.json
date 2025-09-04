@@ -2,7 +2,7 @@
   "display": {
     "icon": {
       "id": "minecraft:fishing_rod",
-      "nbt": "{Damage:0}"
+      "count": 1
     },
     "title": {
       "translate": "advancements.husbandry.fishy_business.title"

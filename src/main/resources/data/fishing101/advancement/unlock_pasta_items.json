@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_noodles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fishing101:noodles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_noodles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fishing101:chicken_broth",
+      "fishing101:purple_pasta",
+      "fishing101:spaghetti_frutti_di_mare"
+    ]
+  },
+  "sends_telemetry_event": false
+}

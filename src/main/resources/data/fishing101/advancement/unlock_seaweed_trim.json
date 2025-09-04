@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_divine_catfish": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fishing101:divine_catfish"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_divine_catfish"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fishing101:seaweed_armor_trim"
+    ]
+  },
+  "sends_telemetry_event": true
+}

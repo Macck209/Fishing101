@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_claw": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fishing101:crab_claw"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_claw"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fishing101:crab_wrench"
+    ]
+  },
+  "sends_telemetry_event": true
+}

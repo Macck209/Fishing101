@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fish_bones": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fishing101:fish_bones"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_fish_bones"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fishing101:fish_bones_bone_meal"
+    ]
+  },
+  "sends_telemetry_event": false
+}

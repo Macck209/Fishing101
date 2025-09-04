@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": [
+      "minecraft:bamboo",
+      "minecraft:stick"
+    ],
+    "B": "minecraft:resin_clump",
+    "C": "fishing101:crab_claw"
+  },
+  "pattern": [
+    "  C",
+    " B ",
+    "A  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fishing101:crab_wrench"
+  }
+}

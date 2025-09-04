@@ -61,6 +61,23 @@
   "item.fishing101.crab_claw": "Szczypce kraba",
   "item.fishing101.eel": "Surowy węgorz",
   "item.fishing101.smoked_eel": "Pieczony węgorz",
+  "item.fishing101.crab_wrench": "Krabi klucz",
+  "item.fishing101.jelly_boots": "Meduzowe buty",
+
+  "item.fishing101.lore.feet": "Kiedy na stopach:",
+  "item.fishing101.lore.armor_1": "+1 do zbroi",
+  "item.fishing101.lore.jump_height_2": "+2 do siły skoku",
+  "item.fishing101.lore.safe_fall_3": "+3 do wysokości bezpiecznego upadku",
+  "item.fishing101.lore.main_hand": "Kiedy w głównej ręce:",
+  "item.fishing101.lore.off_hand": "Kiedy w drugiej ręce:",
+  "item.fishing101.lore.also_shovel": "Działa też jak łopata",
+  "item.fishing101.lore.attack_dmg_3": " 3 obrażeń",
+  "item.fishing101.lore.attack_speed_3": " 3 szybkości ataku",
+  "item.fishing101.lore.block_range_05": "+0.5 do zasięgu interakcji z blokami",
+  "item.fishing101.lore.block_range_2": "+2 do zasięgu interakcji z blokami",
+
+  "tag.item.fishing101.jelly_repair": "Meduzowe przedmioty do naprawy",
+  "tag.item.fishing101.trimmable_armor": "Zbroja do przycinania",
 
   "item.fishing101.group_title": "Rybołówstwo 101",
 
@@ -158,5 +175,13 @@
   "books.fishing101.pandafish": "Pandaryb",
   "books.fishing101.witchfish": "Wiedźmoryb",
   "books.fishing101.flowerfish": "Kwiatoryb",
-  "books.fishing101.eel": "Węgorz"
+  "books.fishing101.eel": "Węgorz",
+
+  "advancements.fishing101.title.all_fish": "Stary człowiek i ryby",
+  "advancements.fishing101.desc.all_fish": "Odkryj wszystkie rodzaje ryb",
+  "advancements.fishing101.title.shocking_food": "Szkoujące żarcie",
+  "advancements.fishing101.desc.shocking_food": "Naładuj grzmotopłetwa blokami miedzi",
+
+  "trim_pattern.fishing101:tentacles": "Zdobienie zbroi \"Macki\"",
+  "trim_pattern.fishing101:seaweed": "Zdobienie zbroi \"Glony\""
 }

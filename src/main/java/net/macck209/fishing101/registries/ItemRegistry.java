@@ -4,24 +4,33 @@ import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.macck209.fishing101.items.PolymerFishBookItem;
 import net.macck209.fishing101.items.PolymerMealBookItem;
+import net.macck209.fishing101.items.polymer.PolymerArmorItem;
 import net.macck209.fishing101.items.polymer.PolymerFishItem;
 import net.macck209.fishing101.items.polymer.PolymerSwordItem;
 import net.macck209.fishing101.items.polymer.SimplePolymerItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ConsumableComponent;
-import net.minecraft.component.type.FoodComponent;
-import net.minecraft.component.type.ToolComponent;
+import net.minecraft.component.type.*;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
+import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.EquipmentAssetKeys;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 
 import java.util.*;
 import java.util.function.Function;
@@ -32,6 +41,18 @@ import static net.macck209.fishing101.Fishing101Initializer.id;
 
 public class ItemRegistry {
     private static final List<Item> fishingItems = new ArrayList<>() {};
+
+    private static final ToolMaterial CLAW_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_STONE_TOOL, 92, 4.0F, 3.0F, 5, ItemTags.STONE_TOOL_MATERIALS);
+    private static final ToolMaterial WRENCH_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 200, 5.0F, 3.0F, 15, ItemTags.STONE_TOOL_MATERIALS);
+    private static final ArmorMaterial JELLY_MATERIAL = new ArmorMaterial(10, Util.make(new EnumMap<>(EquipmentType.class), (map) -> {
+                map.put(EquipmentType.BOOTS, 1);
+                map.put(EquipmentType.LEGGINGS, 2);
+                map.put(EquipmentType.CHESTPLATE, 3);
+                map.put(EquipmentType.HELMET, 1);
+                map.put(EquipmentType.BODY, 2);
+            }), 20, SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0.0F, 0.0F,
+            TagKey.of(RegistryKeys.ITEM, id("jelly_repair")),
+            RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, id("jelly")));
 
     //--------------------------------------------------
     // Raw fish
@@ -700,14 +721,77 @@ public class ItemRegistry {
     public static final Item MEAL_BOOK = registerItem(
             "meal_book",
             (s) -> new PolymerMealBookItem(s.maxCount(1)));
+    // I feel like this is a terrible approach, but att. modifiers don't display _total_ dmg and attack speed
+    // Also I'm just learning/experimenting with attribs and lore modifications
     public static final Item CRAB_CLAW = registerItem(
             "crab_claw",
-            (s) -> new PolymerSwordItem(
-                ToolMaterial.STONE,
-                2,
-                -1,
-                s.maxCount(1).maxDamage(Integer.MAX_VALUE)
-            ));
+            (s) -> new PolymerSwordItem.Builder(
+                    CLAW_MATERIAL,
+                    5,
+                    0,
+                    s.maxCount(1).maxDamage(Integer.MAX_VALUE).enchantable(5)
+            ).addAttributeModif(EntityAttributes.BLOCK_INTERACTION_RANGE,
+                    new EntityAttributeModifier(id("crab_claw_attribute_1"), 0.5f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.MAINHAND, AttributeModifiersComponent.Display.getHidden()
+            ).addAttributeModif(EntityAttributes.ATTACK_DAMAGE,
+                    new EntityAttributeModifier(id("crab_claw_attribute_2"), 2f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.MAINHAND, AttributeModifiersComponent.Display.getHidden() // +2f = 3 dmg total
+            ).addAttributeModif(EntityAttributes.ATTACK_SPEED,
+                    new EntityAttributeModifier(id("crab_claw_attribute_3"), -1f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.MAINHAND, AttributeModifiersComponent.Display.getHidden() // -2.4f = the same as sword (1.6 hits/s)
+            ).addLore(Text.translatable("item.fishing101.lore.also_shovel").formatted(Formatting.GRAY),
+                    Text.literal(""),
+                    Text.translatable("item.fishing101.lore.main_hand").formatted(Formatting.GRAY),
+                    Text.translatable("item.fishing101.lore.attack_dmg_3").formatted(Formatting.DARK_GREEN),
+                    Text.translatable("item.fishing101.lore.attack_speed_3").formatted(Formatting.DARK_GREEN),
+                    Text.translatable("item.fishing101.lore.block_range_05").formatted(Formatting.BLUE)
+            ).build());
+    public static final Item CRAB_WRENCH = registerItem(
+            "crab_wrench",
+            (s) -> new PolymerSwordItem.Builder(
+                    WRENCH_MATERIAL,
+                    15,
+                    0,
+                    s.maxCount(1).maxDamage(Integer.MAX_VALUE).enchantable(12)
+            ).addAttributeModif(EntityAttributes.BLOCK_INTERACTION_RANGE,
+                    new EntityAttributeModifier(id("crab_wrench_attribute_1"), 2f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.OFFHAND, AttributeModifiersComponent.Display.getHidden()
+            ).addAttributeModif(EntityAttributes.ATTACK_DAMAGE,
+                    new EntityAttributeModifier(id("crab_wrench_attribute_2"), 2f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.MAINHAND, AttributeModifiersComponent.Display.getHidden()
+            ).addAttributeModif(EntityAttributes.ATTACK_SPEED,
+                    new EntityAttributeModifier(id("crab_wrench_attribute_3"), -1f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.MAINHAND, AttributeModifiersComponent.Display.getHidden()
+            ).addLore(Text.translatable("item.fishing101.lore.also_shovel").formatted(Formatting.GRAY),
+                    Text.literal(""),
+                    Text.translatable("item.fishing101.lore.main_hand").formatted(Formatting.GRAY),
+                    Text.translatable("item.fishing101.lore.attack_dmg_3").formatted(Formatting.DARK_GREEN),
+                    Text.translatable("item.fishing101.lore.attack_speed_3").formatted(Formatting.DARK_GREEN),
+                    Text.translatable("item.fishing101.lore.off_hand").formatted(Formatting.GRAY),
+                    Text.translatable("item.fishing101.lore.block_range_2").formatted(Formatting.BLUE)
+            ).build());
+    public static final Item JELLY_BOOTS = registerItem(
+            "jelly_boots",
+            (s) -> new PolymerArmorItem.Builder(
+                    JELLY_MATERIAL, EquipmentType.BOOTS, s.enchantable(20)
+            ).addAttributeModif(EntityAttributes.SAFE_FALL_DISTANCE,
+                    new EntityAttributeModifier(id("jelly_boots_attribute_1"), 3.0f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.FEET, AttributeModifiersComponent.Display.getHidden()
+            ).addAttributeModif(EntityAttributes.JUMP_STRENGTH,
+                    new EntityAttributeModifier(id("jelly_boots_attribute_2"), 0.5f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                    AttributeModifierSlot.FEET, AttributeModifiersComponent.Display.getHidden()
+            ).addAttributeModif(EntityAttributes.GRAVITY,
+                    new EntityAttributeModifier(id("jelly_boots_attribute_3"), -0.2f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                    AttributeModifierSlot.FEET, AttributeModifiersComponent.Display.getHidden()
+            ).addAttributeModif(EntityAttributes.ARMOR, // att. modifs overwrite armor, so this is necessary here
+                    new EntityAttributeModifier(id("jelly_boots_attribute_4"), 1.0f, EntityAttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifierSlot.FEET, AttributeModifiersComponent.Display.getHidden()
+            ).addLore(Text.literal(""),
+                    Text.translatable("item.fishing101.lore.feet").formatted(Formatting.GRAY),
+                    Text.translatable("item.fishing101.lore.armor_1").formatted(Formatting.BLUE),
+                    Text.translatable("item.fishing101.lore.jump_height_2").formatted(Formatting.BLUE),
+                    Text.translatable("item.fishing101.lore.safe_fall_3").formatted(Formatting.BLUE)
+            ).build());
 
 
     //--------------------------------------------------

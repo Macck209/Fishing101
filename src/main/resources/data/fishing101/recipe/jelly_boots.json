@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": [
+      "fishing101:jellyfish",
+      "fishing101:end_jellyfish",
+      "fishing101:divine_jellyfish"
+    ],
+    "Y": "minecraft:slime_ball"
+  },
+  "pattern": [
+    "Y Y",
+    "X X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fishing101:jelly_boots"
+  }
+}

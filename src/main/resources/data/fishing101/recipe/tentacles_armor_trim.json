@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smithing_trim",
+  "addition": "#minecraft:trim_materials",
+  "base": "#minecraft:trimmable_armor",
+  "template": "fishing101:divine_jellyfish",
+  "pattern": "fishing101:tentacles"
+}

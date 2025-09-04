@@ -1,15 +1,16 @@
 package net.macck209.fishing101.items;
 
-import eu.pb4.polymer.core.api.item.PolymerItem;
 import eu.pb4.sgui.api.elements.BookElementBuilder;
 import eu.pb4.sgui.api.gui.BookGui;
 import net.macck209.fishing101.items.polymer.PolymerAutoItem;
 import net.macck209.fishing101.polymer.PolymerTextures;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -22,6 +23,7 @@ import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class PolymerMealBookItem extends Item implements PolymerAutoItem {
     public PolymerMealBookItem(Settings settings) {
@@ -41,6 +43,11 @@ public class PolymerMealBookItem extends Item implements PolymerAutoItem {
     @Override
     public Item getPolymerItem(ItemStack itemStack, PacketContext packetContext) {
         return Items.WRITTEN_BOOK;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+        tooltip.accept(Text.translatable("item.fishing101.meal_book_subtitle").formatted(Formatting.GRAY));
     }
 
     @Override

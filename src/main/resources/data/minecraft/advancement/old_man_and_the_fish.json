@@ -3,8 +3,12 @@
     "icon": {
       "id": "minecraft:tropical_fish"
     },
-    "title": "Old Man and the Fish",
-    "description": "Discover all the new fish types",
+    "title": {
+      "translate": "advancements.fishing101.title.all_fish"
+    },
+    "description": {
+      "translate": "advancements.fishing101.desc.all_fish"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

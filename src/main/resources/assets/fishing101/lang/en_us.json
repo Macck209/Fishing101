@@ -61,6 +61,23 @@
   "item.fishing101.crab_claw": "Crab Claw",
   "item.fishing101.eel": "Raw Eel",
   "item.fishing101.smoked_eel": "Cooked Eel",
+  "item.fishing101.crab_wrench": "Crab Wrench",
+  "item.fishing101.jelly_boots": "Jelly Boots",
+
+  "item.fishing101.lore.feet": "When on Feet:",
+  "item.fishing101.lore.armor_1": "+1 Armor",
+  "item.fishing101.lore.jump_height_2": "+2 Block Jump Height",
+  "item.fishing101.lore.safe_fall_3": "+3 Block Safer Fall",
+  "item.fishing101.lore.main_hand": "When in Main Hand",
+  "item.fishing101.lore.off_hand": "When in Off Hand",
+  "item.fishing101.lore.also_shovel": "Also works like a shovel",
+  "item.fishing101.lore.attack_dmg_3": " 3 Attack Damage",
+  "item.fishing101.lore.attack_speed_3": " 3 Attack Speed",
+  "item.fishing101.lore.block_range_05": "+0.5 Block Interaction Range",
+  "item.fishing101.lore.block_range_2": "+2 Block Interaction Range",
+
+  "tag.item.fishing101.jelly_repair": "Jelly Repair Items",
+  "tag.item.fishing101.trimmable_armor": "Trimmable Armor",
 
   "item.fishing101.group_title": "Fishing 101",
 
@@ -158,5 +175,13 @@
   "books.fishing101.pandafish": "Pandafish",
   "books.fishing101.witchfish": "Witchfish",
   "books.fishing101.flowerfish": "Flowerfish",
-  "books.fishing101.eel": "Eel"
+  "books.fishing101.eel": "Eel",
+
+  "advancements.fishing101.title.all_fish": "Old Man and the Fish",
+  "advancements.fishing101.desc.all_fish": "Discover all the new fish types",
+  "advancements.fishing101.title.shocking_food": "Shocking food",
+  "advancements.fishing101.desc.shocking_food": "Charge up a thunderfin with copper",
+
+  "trim_pattern.fishing101:tentacles": "Tentacles Armor Trim",
+  "trim_pattern.fishing101:seaweed": "Seaweed Armor Trim"
 }
