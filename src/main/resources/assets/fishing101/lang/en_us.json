@@ -183,5 +183,7 @@
   "advancements.fishing101.desc.shocking_food": "Charge up a thunderfin with copper",
 
   "trim_pattern.fishing101:tentacles": "Tentacles Armor Trim",
-  "trim_pattern.fishing101:seaweed": "Seaweed Armor Trim"
+  "trim_pattern.fishing101:seaweed": "Seaweed Armor Trim",
+
+  "modmenu.descriptionTranslation.fishing101": "Fishing 101 adds more fish to catch in different biomes!"
 }

@@ -48,13 +48,7 @@ To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnn
         Latest changes
     </summary>
 
-- 2 new items: Crab Wrench and Jelly Boots
-- 2 new trim patterns: Tentacles and Seaweed (get them by trimming with Divine Jellyfish or Divine Catfish)
-- Dough can be crafted from any chicken or turtle egg type
-- Added some recipe unlocks for some of the items
-- Added translations to advancements
-- Re-added subtitle to books
-- Other minor tweaks
+- Added Ukrainian translations thanks to [Starman(StarmanMine142)](https://github.com/StarmanMine142)
 
 Plans for the future: Who knows? Tell me what would you like to see [here](https://github.com/Macck209/Fishing101/issues)!
 </details>

@@ -183,5 +183,7 @@
   "advancements.fishing101.desc.shocking_food": "Naładuj grzmotopłetwa blokami miedzi",
 
   "trim_pattern.fishing101:tentacles": "Zdobienie zbroi \"Macki\"",
-  "trim_pattern.fishing101:seaweed": "Zdobienie zbroi \"Glony\""
+  "trim_pattern.fishing101:seaweed": "Zdobienie zbroi \"Glony\"",
+
+  "modmenu.descriptionTranslation.fishing101": "Fishing 101 dodaje nowe ryby do złapania w różnych biomach!"
 }
