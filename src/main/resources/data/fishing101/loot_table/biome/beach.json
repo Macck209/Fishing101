@@ -6,6 +6,28 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "fishing101:divine_jellyfish",
+          "weight": 1,
+          "quality": 0
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fishing101:solarfish",
+          "weight": 5,
+          "quality": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 4000,
+                "max": 7999
+              },
+              "period": 24000
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "name": "fishing101:crab_claw",
           "weight": 3
         },
@@ -18,12 +40,24 @@
         {
           "type": "minecraft:item",
           "name": "fishing101:ordinary_shrimp",
-          "weight": 10,
-          "quality": 0
+          "weight": 15,
+          "quality": 0,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 0,
+                "max": 11999
+              },
+              "period": 24000
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "fishing101:luminous_shrimp",
+          "weight": 15,
+          "quality": 0,
           "conditions": [
             {
               "condition": "minecraft:time_check",
@@ -38,7 +72,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:tropical_fish",
-          "weight": 15,
+          "weight": 10,
           "quality": 0
         },
         {
@@ -68,15 +102,9 @@
         },
         {
           "type": "minecraft:item",
-          "name": "fishing101:divine_catfish",
-          "weight": 1,
-          "quality": 0
-        },
-        {
-          "type": "minecraft:item",
           "name": "fishing101:luminous_mackerel",
-          "weight": 10,
-          "quality": 0,
+          "weight": 15,
+          "quality": -1,
           "conditions": [
             {
               "condition": "minecraft:time_check",
@@ -92,7 +120,17 @@
           "type": "minecraft:item",
           "name": "fishing101:ordinary_mackerel",
           "weight": 15,
-          "quality": -1
+          "quality": -1,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 0,
+                "max": 11999
+              },
+              "period": 24000
+            }
+          ]
         },
         {
           "type": "minecraft:loot_table",

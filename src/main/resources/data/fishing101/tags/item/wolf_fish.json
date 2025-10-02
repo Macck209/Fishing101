@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "#fishing101:cat_fish",
+    "fishing101:smoked_ordinary_carp",
+    "fishing101:smoked_deformed_carp",
+    "fishing101:smoked_luminous_carp",
+    "fishing101:smoked_catfish",
+    "fishing101:smoked_ordinary_mackerel",
+    "fishing101:smoked_luminous_mackerel",
+    "fishing101:smoked_mangrove_jack",
+    "fishing101:smoked_ordinary_shrimp",
+    "fishing101:smoked_luminous_shrimp",
+    "fishing101:smoked_anglerfish",
+    "fishing101:smoked_koi",
+    "fishing101:smoked_solarfish",
+    "fishing101:smoked_witchfish",
+    "fishing101:smoked_flowerfish",
+    "fishing101:smoked_pandafish",
+    "fishing101:smoked_eel"
+  ]
+}
+
+

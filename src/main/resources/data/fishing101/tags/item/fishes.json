@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "#fishing101:wolf_fish",
+    "fishing101:jellyfish",
+    "fishing101:end_jellyfish",
+    "fishing101:divine_jellyfish",
+    "fishing101:starfish",
+    "fishing101:end_starfish",
+    "fishing101:ordinary_shrimp",
+    "fishing101:luminous_shrimp"
+  ]
+}
+
+

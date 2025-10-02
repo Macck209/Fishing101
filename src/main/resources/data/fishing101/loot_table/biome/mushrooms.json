@@ -14,7 +14,17 @@
           "type": "minecraft:item",
           "name": "fishing101:ordinary_shrimp",
           "weight": 10,
-          "quality": 0
+          "quality": 0,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 0,
+                "max": 11999
+              },
+              "period": 24000
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -29,12 +39,6 @@
               "period": 24000
             }
           ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:salmon",
-          "weight": 5,
-          "quality": 0
         },
         {
           "type": "minecraft:item",
@@ -99,7 +103,17 @@
           "type": "minecraft:item",
           "name": "fishing101:ordinary_mackerel",
           "weight": 15,
-          "quality": -1
+          "quality": -1,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 0,
+                "max": 11999
+              },
+              "period": 24000
+            }
+          ]
         },
         {
           "type": "minecraft:loot_table",

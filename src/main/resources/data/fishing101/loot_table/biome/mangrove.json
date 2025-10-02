@@ -13,7 +13,7 @@
         {
           "type": "minecraft:item",
           "name": "fishing101:mangrove_jack",
-          "weight": 10,
+          "weight": 15,
           "quality": 1
         },
         {
@@ -31,8 +31,8 @@
             {
               "condition": "minecraft:time_check",
               "value": {
-                "min": 0,
-                "max": 11999
+                "min": 4000,
+                "max": 7999
               },
               "period": 24000
             }
@@ -65,8 +65,8 @@
         {
           "type": "minecraft:item",
           "name": "fishing101:luminous_carp",
-          "weight": 10,
-          "quality": 0,
+          "weight": 14,
+          "quality": -1,
           "conditions": [
             {
               "condition": "minecraft:time_check",
@@ -87,8 +87,18 @@
         {
           "type": "minecraft:item",
           "name": "fishing101:ordinary_carp",
-          "weight": 19,
-          "quality": -1
+          "weight": 14,
+          "quality": -1,
+          "conditions": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 0,
+                "max": 11999
+              },
+              "period": 24000
+            }
+          ]
         },
         {
           "type": "minecraft:loot_table",

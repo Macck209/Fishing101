@@ -48,7 +48,9 @@ To learn about the mod in-game, read the books: _Fisherman's Journal_ and _Johnn
         Latest changes
     </summary>
 
-- Added Ukrainian translations thanks to [Starman(StarmanMine142)](https://github.com/StarmanMine142)
+- Improved fish loot tables (luminous fish were too rare before, etc.)
+- 1.21.9
+- Modded fish now work with dolphins, cats, ocelots and wolves (taming, breeding, healing, etc.)
 
 Plans for the future: Who knows? Tell me what would you like to see [here](https://github.com/Macck209/Fishing101/issues)!
 </details>

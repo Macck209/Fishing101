@@ -1,6 +1,7 @@
 package net.macck209.fishing101.items.polymer;
 
 import net.macck209.fishing101.polymer.PolymerTextures;
+import net.macck209.fishing101.registries.ItemRegistry;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.entity.EntityType;
@@ -122,7 +123,7 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         ConsumableComponent consumableComponent = stack.get(DataComponentTypes.CONSUMABLE);
 
-        if (!world.isClient && user instanceof PlayerEntity) {
+        if (!world.isClient() && user instanceof PlayerEntity) {
             if (isChorus) {
                 this.teleportRandomly(world, user);
             }
@@ -134,8 +135,8 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
                 user.setFrozenTicks(200);
             }
 
-            if (returnItem != Items.EGG && world instanceof ServerWorld serverWorld) {
-                user.dropItem(serverWorld, returnItem, 0);
+            if (returnItem != Items.EGG && world instanceof ServerWorld) {
+                user.dropItem(returnItem.getDefaultStack(), false, false);
             }
         }
         return consumableComponent != null ? consumableComponent.finishConsumption(world, user, stack) : stack;
@@ -184,7 +185,7 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
                 user.stopRiding();
             }
 
-            Vec3d vec3d = user.getPos();
+            Vec3d vec3d = user.getEntityPos();
             if (user.teleport(d, e, f, true)) {
                 world.emitGameEvent(GameEvent.TELEPORT, vec3d, GameEvent.Emitter.of(user));
                 SoundCategory soundCategory;

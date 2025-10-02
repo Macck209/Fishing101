@@ -22,8 +22,9 @@ public abstract class ItemMixin {
     private void modifyFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir) {
         if (this.asItem() == Items.COD || this.asItem() == Items.SALMON || this.asItem() == Items.TROPICAL_FISH || this.asItem() == Items.PUFFERFISH
                 || this.asItem() == Items.COOKED_COD || this.asItem() == Items.COOKED_SALMON) {
-            if (!world.isClient && world instanceof ServerWorld serverWorld) {
-                user.dropItem(serverWorld, ItemRegistry.FISH_BONES, 0);
+            if (!world.isClient() && world instanceof ServerWorld) {
+                ItemStack fBones = new ItemStack(ItemRegistry.FISH_BONES);
+                user.dropItem(fBones, false, false);
             }
         }
         cir.setReturnValue(stack);
