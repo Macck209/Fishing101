@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.11-SNAPSHOT'
+	id 'fabric-loom' version '1.14-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -35,8 +35,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modImplementation include("xyz.nucleoid:server-translations-api:2.5.2+1.21.9-pre3")
-	modImplementation include("eu.pb4:polymer-core:0.14.0+1.21.9")
-	modImplementation include("eu.pb4:polymer-resource-pack:0.14.0+1.21.9")
+	modImplementation include("eu.pb4:polymer-core:0.14.4+1.21.10")
+	modImplementation include("eu.pb4:polymer-resource-pack:0.14.4+1.21.10")
 	modImplementation include("eu.pb4:sgui:1.11.0+1.21.9")
 }
 
@@ -61,7 +61,7 @@ java {
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${project.archives_base_name}" }
 	}
 }
 
