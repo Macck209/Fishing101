@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:mangrove_swamp",
+    {
+      "id": "#c:primary_wood_type/mangrove",
+      "required": false
+    }
+  ]
+}

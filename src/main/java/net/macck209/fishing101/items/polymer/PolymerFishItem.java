@@ -1,37 +1,28 @@
 package net.macck209.fishing101.items.polymer;
 
-import net.macck209.fishing101.polymer.PolymerTextures;
-import net.macck209.fishing101.registries.ItemRegistry;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ConsumableComponent;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.passive.FoxEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.intprovider.IntProvider;
-import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
-import org.jetbrains.annotations.Nullable;
-import xyz.nucleoid.packettweaker.PacketContext;
-
-import java.util.Objects;
+import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.TextColor;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.consume_effects.TeleportRandomlyConsumeEffect;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 public class PolymerFishItem extends Item implements PolymerAutoItem {
     private final Item polymerItem;
@@ -41,11 +32,11 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
     private final Boolean isChilly;
     private final Item returnItem;
 
-    public PolymerFishItem(Settings settings, Item polymerItem, TextColor color) {
+    public PolymerFishItem(Properties settings, Item polymerItem, TextColor color) {
         this(settings, polymerItem, color, false, false, false, Items.EGG);
     }
 
-    public PolymerFishItem(Settings settings, Item polymerItem, TextColor color, Boolean isChorus, Boolean isCharged, Boolean isChilly, Item returnItem) {
+    public PolymerFishItem(Properties settings, Item polymerItem, TextColor color, Boolean isChorus, Boolean isCharged, Boolean isChilly, Item returnItem) {
         super(settings);
         this.polymerItem = polymerItem;
         this.color = color;
@@ -55,9 +46,9 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
         this.returnItem = returnItem;
     }
 
-    private PolymerFishItem(Item polymerItem, Builder builder) {
+    private PolymerFishItem(Builder builder) {
         super(builder.settings);
-        this.polymerItem = polymerItem;
+        this.polymerItem = builder.polymerItem;
         this.color = builder.color;
         this.isChorus = builder.isChorus;
         this.isCharged = builder.isCharged;
@@ -66,7 +57,7 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
     }
 
     public static class Builder {
-        private final Settings settings;
+        private final Properties settings;
         private final Item polymerItem;
         private final TextColor color;
         private Boolean isChorus = false;
@@ -74,7 +65,7 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
         private Boolean isChilly = false;
         private Item returnItem = Items.EGG;
 
-        public Builder(Settings settings, Item polymerItem, TextColor color) {
+        public Builder(Properties settings, Item polymerItem, TextColor color) {
             this.settings = settings;
             this.polymerItem = polymerItem;
             this.color = color;
@@ -101,13 +92,21 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
         }
 
         public PolymerFishItem build() {
-            return new PolymerFishItem(Items.STICK, this);
+            return new PolymerFishItem(this);
+        }
+    }
+
+    // Drops beside the user like the old dropItem(stack, false, false); 26.3's drop() also swings the arm.
+    public static void dropAtUser(LivingEntity user, ItemStack stack) {
+        ItemEntity entity = user.createItemStackToDrop(stack, false, false);
+        if (entity != null) {
+            user.level().addFreshEntity(entity);
         }
     }
 
     @Override
-    public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey()).setStyle(Style.EMPTY.withColor(color));
+    public Component getName(ItemStack stack) {
+        return Component.translatable(this.getDescriptionId()).setStyle(Style.EMPTY.withColor(color));
     }
 
     @Override
@@ -116,97 +115,51 @@ public class PolymerFishItem extends Item implements PolymerAutoItem {
     }
 
     @Override
-    public @Nullable Identifier getPolymerItemModel(ItemStack stack, PacketContext context){
-        return PolymerTextures.MODELS.get(this);
-    }
+    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
+        Consumable consumable = stack.get(DataComponents.CONSUMABLE);
 
-    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        ConsumableComponent consumableComponent = stack.get(DataComponentTypes.CONSUMABLE);
-
-        if (!world.isClient() && user instanceof PlayerEntity) {
+        if (!world.isClientSide() && user instanceof Player) {
             if (isChorus) {
-                this.teleportRandomly(world, user);
+                new TeleportRandomlyConsumeEffect().apply(world, stack, user);
             }
             if (isCharged) {
                 this.startThunder(world, user);
             }
 
             if (isChilly) {
-                user.setFrozenTicks(200);
+                user.setTicksFrozen(200);
             }
 
-            if (returnItem != Items.EGG && world instanceof ServerWorld) {
-                user.dropItem(returnItem.getDefaultStack(), false, false);
+            if (returnItem != Items.EGG && world instanceof ServerLevel) {
+                dropAtUser(user, returnItem.getDefaultInstance());
             }
         }
-        return consumableComponent != null ? consumableComponent.finishConsumption(world, user, stack) : stack;
+        return consumable != null ? consumable.onConsume(world, user, stack) : stack;
     }
 
-    private void startThunder(World world, LivingEntity user) {
-        if (!(world instanceof ServerWorld serverWorld)) {
+    private void startThunder(Level world, LivingEntity user) {
+        if (!(world instanceof ServerLevel serverWorld)) {
             return;
         }
-        
-        BlockPos bp = user.getBlockPos();
 
-        world.setThunderGradient(1F);
-        RegistryKey<World> registryKey = world.getRegistryKey();
-        Objects.requireNonNull(Objects.requireNonNull(world.getServer()).getWorld(registryKey)).setWeather(0, processDuration(world, 9600, ServerWorld.THUNDER_WEATHER_DURATION_PROVIDER), true, true);
+        BlockPos bp = user.blockPosition();
 
-        if (world.isSkyVisible(bp)) {
-            LightningEntity lightningEntity = new LightningEntity(EntityType.LIGHTNING_BOLT, serverWorld);
+        serverWorld.setThunderLevel(1F);
+        // Weather is server-wide in 26.x; 1.21.x ignored this call outside the overworld.
+        if (serverWorld.dimension() == Level.OVERWORLD) {
+            serverWorld.getServer().setWeatherParameters(0, 9600, true, true);
+        }
+
+        if (serverWorld.canSeeSky(bp)) {
+            LightningBolt lightningEntity = EntityTypes.LIGHTNING_BOLT.create(serverWorld, EntitySpawnReason.EVENT);
             if (lightningEntity != null) {
-                lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(bp));
-                lightningEntity.setChanneler(user instanceof ServerPlayerEntity ? (ServerPlayerEntity) user : null);
-                world.spawnEntity(lightningEntity);
+                lightningEntity.snapTo(Vec3.atBottomCenterOf(bp));
+                lightningEntity.setCause(user instanceof ServerPlayer ? (ServerPlayer) user : null);
+                serverWorld.addFreshEntity(lightningEntity);
             }
         }
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 10000.0F, 0.95F);
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 2.0F, 0.7F);
+        serverWorld.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 10000.0F, 0.95F);
+        serverWorld.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 2.0F, 0.7F);
 
-    }
-
-    private static int processDuration(World world, int duration, IntProvider provider) {
-        return duration == -1 ? provider.get(world.getRandom()) : duration;
-    }
-
-    private void teleportRandomly(World world, LivingEntity user) {
-        if (!(world instanceof ServerWorld serverWorld)) {
-            return;
-        }
-        
-        boolean bl = false;
-
-        for(int i = 0; i < 16; ++i) {
-            double d = user.getX() + (user.getRandom().nextDouble() - 0.5) * (double)16.0F;
-            double e = MathHelper.clamp(user.getY() + (user.getRandom().nextDouble() - 0.5) * (double)16.0F, world.getBottomY(), world.getBottomY() + serverWorld.getLogicalHeight() - 1);
-            double f = user.getZ() + (user.getRandom().nextDouble() - 0.5) * (double)16.0F;
-            if (user.hasVehicle()) {
-                user.stopRiding();
-            }
-
-            Vec3d vec3d = user.getEntityPos();
-            if (user.teleport(d, e, f, true)) {
-                world.emitGameEvent(GameEvent.TELEPORT, vec3d, GameEvent.Emitter.of(user));
-                SoundCategory soundCategory;
-                SoundEvent soundEvent;
-                if (user instanceof FoxEntity) {
-                    soundEvent = SoundEvents.ENTITY_FOX_TELEPORT;
-                    soundCategory = SoundCategory.NEUTRAL;
-                } else {
-                    soundEvent = SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT;
-                    soundCategory = SoundCategory.PLAYERS;
-                }
-
-                world.playSound(null, user.getX(), user.getY(), user.getZ(), soundEvent, soundCategory);
-                user.onLanding();
-                bl = true;
-                break;
-            }
-        }
-
-        if (bl && user instanceof PlayerEntity playerEntity) {
-            playerEntity.clearCurrentExplosion();
-        }
     }
 }

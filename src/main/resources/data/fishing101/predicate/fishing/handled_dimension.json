@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:any_of",
+  "terms": [
+    "fishing101:fishing/in_overworld",
+    "fishing101:fishing/in_the_end"
+  ]
+}

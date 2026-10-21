@@ -1,23 +1,22 @@
 package net.macck209.fishing101.items.polymer;
 
-import net.macck209.fishing101.polymer.PolymerTextures;
-import net.minecraft.component.type.AttributeModifierSlot;
-import net.minecraft.component.type.AttributeModifiersComponent;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.registry.entry.RegistryEntry;
-
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-
-import org.jetbrains.annotations.Nullable;
-import xyz.nucleoid.packettweaker.PacketContext;
+import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
+import net.macck209.fishing101.polymer.NoPackFallbacks;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,11 +25,11 @@ import java.util.function.Consumer;
 
 
 public class PolymerArmorItem extends Item implements PolymerAutoItem {
-	private List<Text> tooltipLines;
+	private List<Component> tooltipLines;
 	private final Item polymerItemBase;
 
-	public PolymerArmorItem(ArmorMaterial material, EquipmentType slot, Settings settings, AttributeModifiersComponent attributes, List<Text> tooltipText) {
-		super(settings.armor(material, slot).attributeModifiers(attributes));
+	public PolymerArmorItem(ArmorMaterial material, ArmorType slot, Properties settings, ItemAttributeModifiers attributes, List<Component> tooltipText) {
+		super(settings.humanoidArmor(material, slot).attributes(attributes));
 		this.polymerItemBase = switch (slot) {
 			case HELMET -> Items.IRON_HELMET;
 			case CHESTPLATE -> Items.IRON_CHESTPLATE;
@@ -47,14 +46,17 @@ public class PolymerArmorItem extends Item implements PolymerAutoItem {
 	}
 
 	@Override
-	public @Nullable Identifier getPolymerItemModel(ItemStack stack, PacketContext context){
-		return PolymerTextures.MODELS.get(this);
+	public void modifyBasePolymerItemStack(ItemStack out, ItemStack stack, PacketContext context, HolderLookup.Provider lookup) {
+		// Without the pack the client has no texture for our equipment asset; show the base item's.
+		if (NoPackFallbacks.lacksPack(context)) {
+			out.set(DataComponents.EQUIPPABLE, this.polymerItemBase.components().get(DataComponents.EQUIPPABLE));
+		}
 	}
 
 	@Override
-	public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> tooltip, TooltipFlag type) {
 		if (tooltipLines != null) {
-			for (Text line:tooltipLines) {
+			for (Component line:tooltipLines) {
 				tooltip.accept(line);
 			}
 		}
@@ -62,29 +64,29 @@ public class PolymerArmorItem extends Item implements PolymerAutoItem {
 
 	public static class Builder {
 		private ArmorMaterial material;
-		private EquipmentType slot;
-		private Settings settings;
-		private AttributeModifiersComponent.Builder attributeBuilder = AttributeModifiersComponent.builder();
-		private List<Text> loreLines = new ArrayList<>();
+		private ArmorType slot;
+		private Properties settings;
+		private ItemAttributeModifiers.Builder attributeBuilder = ItemAttributeModifiers.builder();
+		private List<Component> loreLines = new ArrayList<>();
 
-		public Builder(ArmorMaterial mat, EquipmentType slot, Settings settings) {
+		public Builder(ArmorMaterial mat, ArmorType slot, Properties settings) {
 			this.material = mat;
 			this.slot = slot;
 			this.settings = settings;
 		}
 
-		public Builder addAttributeModif(RegistryEntry attrType, EntityAttributeModifier modifValue, AttributeModifierSlot modifSlot, AttributeModifiersComponent.Display modifDisplay) {
+		public Builder addAttributeModif(Holder<Attribute> attrType, AttributeModifier modifValue, EquipmentSlotGroup modifSlot, ItemAttributeModifiers.Display modifDisplay) {
 			this.attributeBuilder.add(attrType, modifValue, modifSlot, modifDisplay);
 			return this;
 		}
 
-		public Builder addLore(Text... lines) {
+		public Builder addLore(Component... lines) {
 			this.loreLines.addAll(Arrays.asList(lines));
 			return this;
 		}
 
 		public PolymerArmorItem build() {
-			AttributeModifiersComponent attributes = attributeBuilder.build();
+			ItemAttributeModifiers attributes = attributeBuilder.build();
 			return new PolymerArmorItem(material, slot, settings, attributes, List.copyOf(loreLines));
 		}
 	}

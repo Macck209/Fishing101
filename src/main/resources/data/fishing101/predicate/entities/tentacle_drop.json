@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:all_of",
+  "terms": [
+    {
+      "type": "minecraft:killed_by_player"
+    },
+    {
+      "type": "minecraft:random_chance_with_enchanted_bonus",
+      "unenchanted_chance": 0.02,
+      "enchanted_chance": {
+        "type": "minecraft:linear",
+        "base": 0.0275,
+        "per_level_above_first": 0.005
+      },
+      "enchantment": "minecraft:looting"
+    }
+  ]
+}

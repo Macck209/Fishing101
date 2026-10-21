@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:cherry_grove",
+    {
+      "id": "#c:primary_wood_type/cherry",
+      "required": false
+    },
+    {
+      "id": "terrestria:sakura_forest",
+      "required": false
+    }
+  ]
+}

@@ -22,9 +22,9 @@
 		"fishing101.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.21.4",
-		"java": ">=21",
+		"fabricloader": ">=${loader_version}",
+		"minecraft": "~${minecraft_version}",
+		"java": ">=${java_version}",
 		"fabric-api": "*"
 	},
 	"suggests": {

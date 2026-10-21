@@ -1,400 +1,277 @@
 package net.macck209.fishing101.items;
 
 import eu.pb4.sgui.api.elements.BookElementBuilder;
-import eu.pb4.sgui.api.gui.BookGui;
-import net.macck209.fishing101.items.polymer.PolymerAutoItem;
-import net.macck209.fishing101.polymer.PolymerTextures;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
-import net.minecraft.util.*;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-import xyz.nucleoid.packettweaker.PacketContext;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Consumer;
-
-public class PolymerFishBookItem extends Item implements PolymerAutoItem {
-    public PolymerFishBookItem(Settings settings) {
-        super(settings);
+public class PolymerFishBookItem extends PolymerBookItem {
+    public PolymerFishBookItem(Properties settings) {
+        super(settings, "item.fishing101.fish_book_subtitle");
     }
 
     @Override
-    public @Nullable Identifier getPolymerItemModel(ItemStack stack, PacketContext context){
-        return PolymerTextures.MODELS.get(this);
-    }
-
-    @Override
-    public Text getName(ItemStack stack) {
-        return Text.translatable("item.fishing101.fish_book");
-    }
-
-    @Override
-    public Item getPolymerItem(ItemStack itemStack, PacketContext packetContext) {
-        return Items.WRITTEN_BOOK;
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
-        tooltip.accept(Text.translatable("item.fishing101.fish_book_subtitle").formatted(Formatting.GRAY));
-    }
-
-    @Override
-    public ActionResult use(World world, PlayerEntity user, Hand hand) {
-        if (user instanceof ServerPlayerEntity player) {
-            new IndexGui(player, hand).open();
-            user.useBook(user.getStackInHand(hand), hand);
-            user.incrementStat(Stats.USED.getOrCreateStat(this));
-            return ActionResult.SUCCESS_SERVER;
-        }
-        return ActionResult.SUCCESS;
-    }
-
-    public static void build(){
-        var builder = new BookElementBuilder();
-        FishGui.BOOKS.clear();
-
+    protected void addPages(BookElementBuilder builder) {
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.intro"),
-                Text.empty(),
-                Text.translatable("books.fishing101.fish_book.intro")
+                Component.translatable("books.fishing101.fish_book.date.intro"),
+                Component.empty(),
+                Component.translatable("books.fishing101.fish_book.intro")
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.carp"),
-                Text.empty(),
-                Text.translatable("books.fishing101.ordinary_carp").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.cypriniformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.freshwater"))
+                Component.translatable("books.fishing101.fish_book.date.carp"),
+                Component.empty(),
+                Component.translatable("books.fishing101.ordinary_carp").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.cypriniformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.freshwater"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.carp"),
-                Text.empty(),
-                Text.translatable("books.fishing101.deformed_carp").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.cypriniformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.freshwater"))
+                Component.translatable("books.fishing101.fish_book.date.carp"),
+                Component.empty(),
+                Component.translatable("books.fishing101.deformed_carp").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.cypriniformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.freshwater"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.luminous_carp"),
-                Text.empty(),
-                Text.translatable("books.fishing101.luminous_carp").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.cypriniformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.freshwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.nocturnal")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.luminous"))
+                Component.translatable("books.fishing101.fish_book.date.luminous_carp"),
+                Component.empty(),
+                Component.translatable("books.fishing101.luminous_carp").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.cypriniformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.freshwater"))
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.nocturnal")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.luminous"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.luminous_carp"),
-                Text.empty(),
-                Text.translatable("books.fishing101.ordinary_catfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.siluriformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.every_water"))
+                Component.translatable("books.fishing101.fish_book.date.luminous_carp"),
+                Component.empty(),
+                Component.translatable("books.fishing101.ordinary_catfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.siluriformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.every_water"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.muddy_catfish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.muddy_catfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.siluriformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.swamp"))
+                Component.translatable("books.fishing101.fish_book.date.muddy_catfish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.muddy_catfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.siluriformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.swamp"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.tropical_catfish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.tropical_catfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.siluriformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.tropical"))
+                Component.translatable("books.fishing101.fish_book.date.tropical_catfish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.tropical_catfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.siluriformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.tropical"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.divine_catfish"),
-                Text.empty(),
-                Text.translatable("item.fishing101.divine_catfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.siluriformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.every_water")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.ascension"))
+                Component.translatable("books.fishing101.fish_book.date.divine_catfish"),
+                Component.empty(),
+                Component.translatable("item.fishing101.divine_catfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.siluriformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.every_water")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.ascension"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.mackerel"),
-                Text.empty(),
-                Text.translatable("books.fishing101.ordinary_mackerel").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.perciformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater"))
+                Component.translatable("books.fishing101.fish_book.date.mackerel"),
+                Component.empty(),
+                Component.translatable("books.fishing101.ordinary_mackerel").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.perciformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.saltwater"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.mackerel"),
-                Text.empty(),
-                Text.translatable("books.fishing101.luminous_mackerel").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.perciformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.nocturnal")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.luminous"))
+                Component.translatable("books.fishing101.fish_book.date.mackerel"),
+                Component.empty(),
+                Component.translatable("books.fishing101.luminous_mackerel").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.perciformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.saltwater"))
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.nocturnal")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.luminous"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.mangrove_jack"),
-                Text.empty(),
-                Text.translatable("books.fishing101.mangrove_jack").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.perciformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.mangrove"))
+                Component.translatable("books.fishing101.fish_book.date.mangrove_jack"),
+                Component.empty(),
+                Component.translatable("books.fishing101.mangrove_jack").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.perciformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.mangrove"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.shrimp"),
-                Text.empty(),
-                Text.translatable("books.fishing101.ordinary_shrimp").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.decapoda"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.thermophilic"))
+                Component.translatable("books.fishing101.fish_book.date.shrimp"),
+                Component.empty(),
+                Component.translatable("books.fishing101.ordinary_shrimp").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.decapoda"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.saltwater"))
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.thermophilic"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.shrimp"),
-                Text.empty(),
-                Text.translatable("books.fishing101.luminous_shrimp").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.decapoda"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.thermophilic"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.nocturnal")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.luminous"))
+                Component.translatable("books.fishing101.fish_book.date.shrimp"),
+                Component.empty(),
+                Component.translatable("books.fishing101.luminous_shrimp").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.decapoda"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.saltwater"))
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.thermophilic"))
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.nocturnal")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.luminous"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.jellyfish"),
-                Text.empty(),
-                Text.translatable("item.fishing101.jellyfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.semaeostomeae"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.allergy"))
+                Component.translatable("books.fishing101.fish_book.date.jellyfish"),
+                Component.empty(),
+                Component.translatable("item.fishing101.jellyfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.semaeostomeae"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.saltwater")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.allergy"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.jellyfish"),
-                Text.empty(),
-                Text.translatable("item.fishing101.divine_jellyfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.semaeostomeae"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.ascension"))
+                Component.translatable("books.fishing101.fish_book.date.jellyfish"),
+                Component.empty(),
+                Component.translatable("item.fishing101.divine_jellyfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.semaeostomeae"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.saltwater")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.ascension"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.anglerfish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.anglerfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.lophiiformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.darkness")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.nausea"))
+                Component.translatable("books.fishing101.fish_book.date.anglerfish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.anglerfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.lophiiformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.darkness")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.nausea"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.anglerfish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.eel").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.anguilliformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.darkness_and_pale_garden")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.allergy"))
+                Component.translatable("books.fishing101.fish_book.date.anglerfish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.eel").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.anguilliformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.darkness_and_pale_garden")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.allergy"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.koi"),
-                Text.empty(),
-                Text.translatable("item.fishing101.red_koi").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.cypriniformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.cherry"))
+                Component.translatable("books.fishing101.fish_book.date.koi"),
+                Component.empty(),
+                Component.translatable("item.fishing101.red_koi").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.cypriniformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.cherry"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.koi"),
-                Text.empty(),
-                Text.translatable("item.fishing101.yellow_koi").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.cypriniformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.cherry"))
+                Component.translatable("books.fishing101.fish_book.date.koi"),
+                Component.empty(),
+                Component.translatable("item.fishing101.yellow_koi").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.cypriniformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.cherry"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.thunderfin"),
-                Text.empty(),
-                Text.translatable("item.fishing101.thunderfin").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.fulmeniformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.electric")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.charging"))
+                Component.translatable("books.fishing101.fish_book.date.thunderfin"),
+                Component.empty(),
+                Component.translatable("item.fishing101.thunderfin").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.fulmeniformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.electric")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.charging"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.starfish"),
-                Text.empty(),
-                Text.translatable("item.fishing101.starfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.paxillosida"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.saltwater"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.beach"))
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.thermophilic")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.shashlik"))
+                Component.translatable("books.fishing101.fish_book.date.starfish"),
+                Component.empty(),
+                Component.translatable("item.fishing101.starfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.paxillosida"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.saltwater"))
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.beach"))
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.thermophilic")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.shashlik"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.ice_cod"),
-                Text.empty(),
-                Text.translatable("item.fishing101.ice_cod").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.gadiformes"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.glaciers")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.cold"))
+                Component.translatable("books.fishing101.fish_book.date.ice_cod"),
+                Component.empty(),
+                Component.translatable("item.fishing101.ice_cod").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.gadiformes"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.glaciers")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.cold"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.solarfish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.solarfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.unknown"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.high")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.funny"))
+                Component.translatable("books.fishing101.fish_book.date.solarfish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.solarfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.unknown"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.high")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.funny"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.pandafish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.pandafish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.unknown"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.bamboo")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.funny"))
+                Component.translatable("books.fishing101.fish_book.date.pandafish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.pandafish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.unknown"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.bamboo")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.funny"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.witchfish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.witchfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.unknown"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.mushroom")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.funny"))
+                Component.translatable("books.fishing101.fish_book.date.witchfish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.witchfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.unknown"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.mushroom")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.funny"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.flowerfish"),
-                Text.empty(),
-                Text.translatable("books.fishing101.flowerfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.unknown"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.flower")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.funny"))
+                Component.translatable("books.fishing101.fish_book.date.flowerfish"),
+                Component.empty(),
+                Component.translatable("books.fishing101.flowerfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.unknown"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.flower")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.funny"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.end_jellyfish"),
-                Text.empty(),
-                Text.translatable("item.fishing101.end_jellyfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.semaeostomeae"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.unknown_1")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.allergy"))
+                Component.translatable("books.fishing101.fish_book.date.end_jellyfish"),
+                Component.empty(),
+                Component.translatable("item.fishing101.end_jellyfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.semaeostomeae"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.unknown_1")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.allergy"))
         );
         builder.addPage(
-                Text.translatable("books.fishing101.fish_book.date.end_jellyfish"),
-                Text.empty(),
-                Text.translatable("item.fishing101.end_starfish").formatted(Formatting.BOLD),
-                Text.translatable("books.fishing101.fish_book.order.paxillosida"),
-                Text.translatable("books.fishing101.fish_book.distribution")
-                        .append(Text.translatable("books.fishing101.fish_book.distribution.unknown_2")),
-                Text.translatable("books.fishing101.fish_book.special")
-                        .append(Text.translatable("books.fishing101.fish_book.special.inedible"))
+                Component.translatable("books.fishing101.fish_book.date.end_jellyfish"),
+                Component.empty(),
+                Component.translatable("item.fishing101.end_starfish").withStyle(ChatFormatting.BOLD),
+                Component.translatable("books.fishing101.fish_book.order.paxillosida"),
+                Component.translatable("books.fishing101.fish_book.distribution")
+                        .append(Component.translatable("books.fishing101.fish_book.distribution.unknown_2")),
+                Component.translatable("books.fishing101.fish_book.special")
+                        .append(Component.translatable("books.fishing101.fish_book.special.inedible"))
         );
-
-        IndexGui.book = builder.asStack();
-    }
-
-    public static final class IndexGui extends BookGui {
-        public static ItemStack book;
-        private final ItemStack stack;
-        private final Hand hand;
-
-        public IndexGui(ServerPlayerEntity player, Hand hand) {
-            super(player, book);
-            this.stack = player.getStackInHand(hand);
-            this.hand = hand;
-            this.setPage(Math.min(stack.getOrDefault(Fishing101Components.BOOK_PAGE, 0),
-                    book.get(DataComponentTypes.WRITTEN_BOOK_CONTENT).getPages(false).size()));        }
-
-        @Override
-        public void onOpen() {
-            super.onOpen();
-        }
-
-        @Override
-        public void onClose() {
-            super.onClose();
-        }
-
-        @Override
-        public void onTakeBookButton() {
-            this.close();
-        }
-
-        @Override
-        public void setPage(int page) {
-            super.setPage(page);
-            this.player.playSoundToPlayer(SoundEvents.ITEM_BOOK_PAGE_TURN, SoundCategory.BLOCKS, 1f, 1);
-
-            if (this.book == book && this.stack == this.player.getStackInHand(hand)) {
-                this.stack.set(Fishing101Components.BOOK_PAGE, page);
-            }
-        }
-    }
-
-    public static final class FishGui extends BookGui {
-        public static final Map<Identifier, ItemStack> BOOKS = new HashMap<>();
-        private final Runnable runnable;
-        private boolean forceReopen;
-
-        public FishGui(ServerPlayerEntity player, Identifier identifier, boolean forceReopen, Runnable runnable) {
-            super(player, BOOKS.get(identifier));
-            this.runnable = runnable;
-            this.forceReopen = forceReopen;
-        }
-
-        @Override
-        public void onTakeBookButton() {
-            super.onTakeBookButton();
-            this.close();
-        }
-
-        @Override
-        public void onClose() {
-            if (this.forceReopen) {
-                this.open();
-                this.forceReopen = false;
-            } else {
-                super.onClose();
-                runnable.run();
-            }
-        }
     }
 }

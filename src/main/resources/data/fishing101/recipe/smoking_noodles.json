@@ -3,5 +3,5 @@
   "ingredient": "fishing101:dough",
   "result": { "id": "fishing101:noodles" },
   "experience": 0.2,
-  "cookingtime": 100
+  "cookingtime": 200
 }

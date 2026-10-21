@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:bamboo_jungle",
+    {
+      "id": "#c:primary_wood_type/bamboo",
+      "required": false
+    }
+  ]
+}

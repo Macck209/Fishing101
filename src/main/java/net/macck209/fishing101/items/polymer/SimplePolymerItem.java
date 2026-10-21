@@ -1,7 +1,7 @@
 package net.macck209.fishing101.items.polymer;
 
 import net.macck209.fishing101.Fishing101Initializer;
-import net.minecraft.text.TextColor;
+import net.minecraft.network.chat.TextColor;
 
 public class SimplePolymerItem {
     public static final TextColor ORDINARY;
@@ -38,7 +38,7 @@ public class SimplePolymerItem {
     }
 
     private static TextColor getTextColor(String name) {
-        return TextColor.parse(name).getOrThrow(message -> {
+        return TextColor.parseColor(name).getOrThrow(message -> {
             Fishing101Initializer.LOGGER.error("Something went wrong when creating TextColor's for FishItem: {}", message);
             return new IllegalStateException("Failed to parse TextColor: " + message);
         });

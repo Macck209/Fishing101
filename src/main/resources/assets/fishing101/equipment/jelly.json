@@ -4,6 +4,11 @@
       {
         "texture": "fishing101:jelly"
       }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "fishing101:jelly"
+      }
     ]
   }
 }

@@ -1,18 +1,19 @@
 package net.macck209.fishing101.items.polymer;
 
-import net.macck209.fishing101.polymer.PolymerTextures;
-import net.minecraft.component.type.AttributeModifierSlot;
-import net.minecraft.component.type.AttributeModifiersComponent;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.item.*;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
-import xyz.nucleoid.packettweaker.PacketContext;
+import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
+import net.minecraft.core.Holder;
+import net.minecraft.network.chat.Component;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,12 +22,12 @@ import java.util.function.Consumer;
 
 
 public class PolymerSwordItem extends Item implements PolymerAutoItem {
-    private List<Text> tooltipLines;
+    private List<Component> tooltipLines;
 
-    public PolymerSwordItem(ToolMaterial toolMaterial, int enchantability, float attackSpeed, Settings settings, AttributeModifiersComponent attributes, List<Text> tooltipText) {
+    public PolymerSwordItem(ToolMaterial toolMaterial, int enchantability, float attackSpeed, Properties settings, ItemAttributeModifiers attributes, List<Component> tooltipText) {
         super(toolMaterial
-                .applyToolSettings(settings, BlockTags.SHOVEL_MINEABLE, 0, attackSpeed, 0)
-                .enchantable(enchantability).attributeModifiers(attributes)
+                .applyToolProperties(settings, BlockTags.MINEABLE_WITH_SHOVEL, 0, attackSpeed, 0)
+                .enchantable(enchantability).attributes(attributes)
         );
         this.tooltipLines = tooltipText;
     }
@@ -37,14 +38,9 @@ public class PolymerSwordItem extends Item implements PolymerAutoItem {
     }
 
     @Override
-    public @Nullable Identifier getPolymerItemModel(ItemStack stack, PacketContext context){
-        return PolymerTextures.MODELS.get(this);
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> tooltip, TooltipFlag type) {
         if (tooltipLines != null) {
-            for (Text line:tooltipLines) {
+            for (Component line:tooltipLines) {
                 tooltip.accept(line);
             }
         }
@@ -55,29 +51,29 @@ public class PolymerSwordItem extends Item implements PolymerAutoItem {
         private final int enchantability;
         private final float attackSpeed;
 
-        private Settings settings;
-        private AttributeModifiersComponent.Builder attributeBuilder = AttributeModifiersComponent.builder();
-        private List<Text> loreLines = new ArrayList<>();
+        private Properties settings;
+        private ItemAttributeModifiers.Builder attributeBuilder = ItemAttributeModifiers.builder();
+        private List<Component> loreLines = new ArrayList<>();
 
-        public Builder(ToolMaterial toolMaterial, int enchantability, float attackSpeed, Settings settings) {
+        public Builder(ToolMaterial toolMaterial, int enchantability, float attackSpeed, Properties settings) {
             this.toolMaterial = toolMaterial;
             this.enchantability = enchantability;
             this.attackSpeed = attackSpeed;
             this.settings = settings;
         }
 
-        public Builder addAttributeModif(RegistryEntry attrType, EntityAttributeModifier modifValue, AttributeModifierSlot modifSlot, AttributeModifiersComponent.Display modifDisplay) {
+        public Builder addAttributeModif(Holder<Attribute> attrType, AttributeModifier modifValue, EquipmentSlotGroup modifSlot, ItemAttributeModifiers.Display modifDisplay) {
             this.attributeBuilder.add(attrType, modifValue, modifSlot, modifDisplay);
             return this;
         }
 
-        public Builder addLore(Text... lines) {
+        public Builder addLore(Component... lines) {
             this.loreLines.addAll(Arrays.asList(lines));
             return this;
         }
 
         public PolymerSwordItem build() {
-            AttributeModifiersComponent attributes = attributeBuilder.build();
+            ItemAttributeModifiers attributes = attributeBuilder.build();
             return new PolymerSwordItem(toolMaterial, enchantability, attackSpeed, settings, attributes, List.copyOf(loreLines));
         }
     }

@@ -9,32 +9,30 @@
           "name": "fishing101:ordinary_shrimp",
           "weight": 10,
           "quality": 0,
-          "conditions": [
-            {
-              "condition": "minecraft:time_check",
-              "value": {
-                "min": 0,
-                "max": 11999
-              },
-              "period": 24000
-            }
-          ]
+          "condition": {
+            "type": "minecraft:time_check",
+            "value": {
+              "min": 0,
+              "max": 11999
+            },
+            "period": 24000,
+            "clock": "minecraft:overworld"
+          }
         },
         {
           "type": "minecraft:item",
           "name": "fishing101:luminous_shrimp",
           "weight": 10,
           "quality": 0,
-          "conditions": [
-            {
-              "condition": "minecraft:time_check",
-              "value": {
-                "min": 12000,
-                "max": 23999
-              },
-              "period": 24000
-            }
-          ]
+          "condition": {
+            "type": "minecraft:time_check",
+            "value": {
+              "min": 12000,
+              "max": 23999
+            },
+            "period": 24000,
+            "clock": "minecraft:overworld"
+          }
         },
         {
           "type": "minecraft:item",
@@ -58,8 +56,7 @@
           "type": "minecraft:item",
           "name": "fishing101:divine_jellyfish",
           "weight": 1,
-          "quality": 0,
-          "conditions": []
+          "quality": 0
         },
         {
           "type": "minecraft:item",
@@ -72,12 +69,10 @@
           "name": "fishing101:thunderfin",
           "weight": 5,
           "quality": 0,
-          "conditions": [
-            {
-              "condition": "minecraft:weather_check",
-              "thundering": true
-            }
-          ]
+          "condition": {
+            "type": "minecraft:weather_check",
+            "thundering": true
+          }
         },
         {
           "type": "minecraft:item",
@@ -90,50 +85,45 @@
           "name": "fishing101:luminous_mackerel",
           "weight": 20,
           "quality": -1,
-          "conditions": [
-            {
-              "condition": "minecraft:time_check",
-              "value": {
-                "min": 12000,
-                "max": 23999
-              },
-              "period": 24000
-            }
-          ]
+          "condition": {
+            "type": "minecraft:time_check",
+            "value": {
+              "min": 12000,
+              "max": 23999
+            },
+            "period": 24000,
+            "clock": "minecraft:overworld"
+          }
         },
         {
           "type": "minecraft:item",
           "name": "fishing101:ordinary_mackerel",
           "weight": 20,
           "quality": -1,
-          "conditions": [
-            {
-              "condition": "minecraft:time_check",
-              "value": {
-                "min": 0,
-                "max": 11999
-              },
-              "period": 24000
-            }
-          ]
+          "condition": {
+            "type": "minecraft:time_check",
+            "value": {
+              "min": 0,
+              "max": 11999
+            },
+            "period": 24000,
+            "clock": "minecraft:overworld"
+          }
         },
         {
           "type": "minecraft:loot_table",
           "value": "minecraft:gameplay/fishing/treasure",
           "weight": 5,
           "quality": 2,
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "type_specific": {
-                  "type": "minecraft:fishing_hook",
-                  "in_open_water": true
-                }
+          "condition": {
+            "type": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:type_specific/fishing_hook": {
+                "in_open_water": true
               }
             }
-          ]
+          }
         },
         {
           "type": "minecraft:loot_table",

@@ -27,12 +27,10 @@
           "name": "fishing101:thunderfin",
           "weight": 5,
           "quality": 0,
-          "conditions": [
-            {
-              "condition": "minecraft:weather_check",
-              "thundering": true
-            }
-          ]
+          "condition": {
+            "type": "minecraft:weather_check",
+            "thundering": true
+          }
         },
         {
           "type": "minecraft:item",
@@ -51,18 +49,15 @@
           "value": "minecraft:gameplay/fishing/treasure",
           "weight": 5,
           "quality": 2,
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "type_specific": {
-                  "type": "minecraft:fishing_hook",
-                  "in_open_water": true
-                }
+          "condition": {
+            "type": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:type_specific/fishing_hook": {
+                "in_open_water": true
               }
             }
-          ]
+          }
         },
         {
           "type": "minecraft:loot_table",

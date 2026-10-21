@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:pale_garden",
+    {
+      "id": "#c:primary_wood_type/pale_oak",
+      "required": false
+    },
+    {
+      "id": "clifftree:pale_grotto",
+      "required": false
+    }
+  ]
+}

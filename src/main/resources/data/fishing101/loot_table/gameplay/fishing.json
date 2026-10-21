@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "rolls": 1,
+      "condition": "fishing101:fishing/in_overworld",
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "fishing101:locations/overworld"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "condition": "fishing101:fishing/in_the_end",
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "fishing101:locations/the_end"
+        }
+      ]
+    }
+  ]
+}

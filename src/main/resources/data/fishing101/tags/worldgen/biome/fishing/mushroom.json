@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:mushroom_fields",
+    {
+      "id": "#c:is_mushroom",
+      "required": false
+    },
+    {
+      "id": "clifftree:mushroom_caves",
+      "required": false
+    }
+  ]
+}
